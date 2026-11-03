@@ -1,0 +1,26 @@
+measure,borough,n_tracts,county_estimate,tract_min,tract_p10,tract_median,tract_p90,tract_max,p90_minus_p10,pct_tracts_gt3pts_from_county,pct_tracts_above_county
+Diabetes,Bronx,341,16.1,5.9,10.8,15.1,19.2,23.1,8.4,35.8,39.9
+Diabetes,Brooklyn,774,12.0,2.9,6.2,11.3,15.6,30.1,9.4,39.7,38.8
+Diabetes,Manhattan,298,8.9,1.7,4.6,7.2,15.1,28.8,10.5,54.0,34.9
+Diabetes,Queens,679,14.3,2.8,9.6,13.4,16.4,24.2,6.8,29.5,32.0
+Diabetes,Staten Island,118,11.9,8.6,9.5,11.6,14.8,27.6,5.3,11.9,40.7
+Coronary heart disease,Bronx,341,7.0,2.9,5.1,6.3,8.1,10.4,3.0,1.5,26.4
+Coronary heart disease,Brooklyn,774,5.7,1.4,3.0,5.3,7.2,19.2,4.2,7.5,37.2
+Coronary heart disease,Manhattan,298,4.9,0.8,2.7,4.2,7.0,14.6,4.3,8.7,34.6
+Coronary heart disease,Queens,679,6.0,1.0,4.2,5.3,6.7,12.5,2.5,2.1,20.8
+Coronary heart disease,Staten Island,118,5.8,4.3,4.9,5.6,7.1,13.6,2.3,3.4,37.3
+High blood pressure,Bronx,341,36.5,17.3,29.6,34.7,40.1,46.4,10.5,52.5,33.4
+High blood pressure,Brooklyn,774,30.4,11.8,19.7,28.3,37.3,56.3,17.6,64.2,36.3
+High blood pressure,Manhattan,298,27.2,9.2,17.6,25.3,35.2,53.9,17.6,70.8,40.9
+High blood pressure,Queens,679,33.6,11.5,25.7,31.2,38.8,50.5,13.1,61.7,29.2
+High blood pressure,Staten Island,118,34.1,29.7,30.7,33.6,37.6,52.3,6.9,26.3,38.1
+Obesity,Bronx,341,33.5,19.8,25.7,34.1,39.1,44.0,13.4,54.5,54.3
+Obesity,Brooklyn,774,25.1,14.4,18.7,23.8,31.7,40.1,13.0,67.2,43.4
+Obesity,Manhattan,298,19.2,11.6,14.6,16.8,27.4,42.9,12.8,70.1,36.6
+Obesity,Queens,679,24.0,14.3,18.2,23.7,30.9,42.6,12.7,56.7,47.4
+Obesity,Staten Island,118,30.3,24.8,27.4,29.6,37.6,52.0,10.2,29.7,41.5
+COPD,Bronx,341,6.9,3.1,4.7,6.3,9.2,12.4,4.5,7.0,36.4
+COPD,Brooklyn,774,5.8,1.4,2.9,5.5,8.5,18.4,5.6,16.5,42.9
+COPD,Manhattan,298,4.4,1.5,2.3,3.7,7.6,17.2,5.3,10.7,31.9
+COPD,Queens,679,5.4,1.1,3.7,5.0,6.7,11.5,3.0,3.8,36.8
+COPD,Staten Island,118,6.0,3.9,5.0,5.8,8.1,16.6,3.1,4.2,39.8

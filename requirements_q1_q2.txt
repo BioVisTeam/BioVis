@@ -1,0 +1,8 @@
+# Q1/Q2 data tables and matplotlib sketches (tested with pandas 3.0, geopandas 1.2, matplotlib 3.11)
+pandas>=2.2,<4
+numpy>=1.26
+geopandas>=1.0
+pyogrio>=0.9
+shapely>=2.0
+matplotlib>=3.8
+tabulate>=0.9
