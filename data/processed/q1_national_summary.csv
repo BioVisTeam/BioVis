@@ -1,0 +1,6 @@
+measure,n_counties,n_missing,min,p10,median,p90,max,p90_minus_p10,lowest_county,highest_county
+Diabetes,2956,187,6.0,8.7,10.7,14.2,23.8,5.5,"Douglas, CO","Oglala Lakota, SD"
+Coronary heart disease,2956,187,3.8,5.0,5.9,7.0,11.4,2.0,"Falls Church, VA","Oglala Lakota, SD"
+High blood pressure,2956,187,21.0,28.4,32.8,39.8,53.1,11.4,"Boulder, CO","Holmes, MS"
+Obesity,2956,187,17.1,31.4,38.2,43.0,54.0,11.6,"San Francisco, CA","Perry, AL"
+COPD,2956,187,3.2,5.2,6.8,9.1,15.0,3.9,"Los Alamos, NM","Oglala Lakota, SD"
