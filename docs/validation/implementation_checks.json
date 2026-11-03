@@ -1,0 +1,63 @@
+{
+  "status": "completed",
+  "observed_utc": "2026-11-02T20:48:16.046078+00:00",
+  "checks": [
+    {
+      "check": "independent_scipy_spearman_verification",
+      "passed": true,
+      "n_pairs": 25,
+      "max_absolute_difference_after_csv_rounding": 4.99906782636117e-11,
+      "comparison_tolerance": 1e-09
+    },
+    {
+      "check": "all_output_hashes_and_row_counts_match_manifest",
+      "passed": true,
+      "n_files": 14
+    },
+    {
+      "check": "cached_raw_bytes_identical_to_user_uploads",
+      "passed": true
+    },
+    {
+      "check": "notebook_all_code_cells_actually_executed_without_errors",
+      "passed": true,
+      "n_code_cells": 17,
+      "saved_outputs": 35,
+      "execution_method": "Actual in-process IPython execution; captured real stream and rich display outputs; socket-based Jupyter transport unavailable in sandbox"
+    },
+    {
+      "check": "canonical_script_and_notebook_stage_functions_identical",
+      "passed": true,
+      "n_functions": 22
+    },
+    {
+      "check": "all_python_sources_compile",
+      "passed": true
+    },
+    {
+      "check": "csv_fips_and_no_pandas_index_columns",
+      "passed": true
+    },
+    {
+      "check": "all_data_validation_checks_passed",
+      "passed": true,
+      "n_checks": 63
+    }
+  ],
+  "software": {
+    "python": "3.13.7",
+    "pandas": "3.0.2",
+    "numpy": "2.4.4",
+    "scipy_for_independent_verification_only": "1.17.1"
+  },
+  "raw_schema_actually_inspected": true,
+  "empirical_outputs_actually_computed": true,
+  "no_synthetic_data_used": true,
+  "limitations": {
+    "hosted_google_colab_session": "Not directly run; notebook was actually run locally in-process; Colab upload/download branch is prepared but unverified in hosted Colab.",
+    "jupyter_socket_transport": "Sandbox prevents port binding; in-process IPython captured real stdout and rich DataFrame outputs.",
+    "q1_csv": "User confirmed none is available; names align with Startup, exact Q1 file comparison not possible.",
+    "source_authentication": "Files supplied by user under official CDC export filenames; actual schemas checked and source hashes recorded; no new independent download claimed."
+  },
+  "phase": "Initial statistical validation before directory cleanup; the current file layout is verified in file_cleanup.json."
+}

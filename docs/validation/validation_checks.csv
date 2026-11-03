@@ -1,0 +1,64 @@
+check,passed,detail
+unique_merged_fips,True,3144
+five_digit_fips,True,5-digit strings
+national_states_only,True,50 states + DC
+all_source_counties_retained,True,Outer join; no county removed for missing values
+nyc_five_present,True,"['36005', '36047', '36061', '36081', '36085']"
+nyc_all_sources_matched,True,Five NYC FIPS must occur in both sources
+nyc_boroughs_only,True,Official county names retained; borough labels added separately
+adult_population_valid,True,Nullable nonnegative integer; context only
+range_DIABETES_adj,True,"Nonmissing range [0, 100]"
+range_DIABETES_adj_lo,True,"Nonmissing range [0, 100]"
+range_DIABETES_adj_hi,True,"Nonmissing range [0, 100]"
+range_CHD_adj,True,"Nonmissing range [0, 100]"
+range_CHD_adj_lo,True,"Nonmissing range [0, 100]"
+range_CHD_adj_hi,True,"Nonmissing range [0, 100]"
+range_BPHIGH_adj,True,"Nonmissing range [0, 100]"
+range_BPHIGH_adj_lo,True,"Nonmissing range [0, 100]"
+range_BPHIGH_adj_hi,True,"Nonmissing range [0, 100]"
+range_OBESITY_adj,True,"Nonmissing range [0, 100]"
+range_OBESITY_adj_lo,True,"Nonmissing range [0, 100]"
+range_OBESITY_adj_hi,True,"Nonmissing range [0, 100]"
+range_COPD_adj,True,"Nonmissing range [0, 100]"
+range_COPD_adj_lo,True,"Nonmissing range [0, 100]"
+range_COPD_adj_hi,True,"Nonmissing range [0, 100]"
+range_RPL_THEMES,True,"Nonmissing range [0, 1]"
+range_RPL_THEME1,True,"Nonmissing range [0, 1]"
+range_RPL_THEME2,True,"Nonmissing range [0, 1]"
+range_RPL_THEME3,True,"Nonmissing range [0, 1]"
+range_RPL_THEME4,True,"Nonmissing range [0, 1]"
+ci_order_DIABETES,True,lower <= estimate <= upper when available
+ci_order_CHD,True,lower <= estimate <= upper when available
+ci_order_BPHIGH,True,lower <= estimate <= upper when available
+ci_order_OBESITY,True,lower <= estimate <= upper when available
+ci_order_COPD,True,lower <= estimate <= upper when available
+q4_shape,True,"[4, 5]"
+q4_unique_pairs,True,20 distinct theme-disease pairs
+q4_matrix_tidy_agree,True,All 20 matrix cells agree with tidy rows
+q3_five_correlations,True,5
+pair_n_RPL_THEMES_DIABETES,True,2956
+pair_n_RPL_THEMES_CHD,True,2956
+pair_n_RPL_THEMES_BPHIGH,True,2956
+pair_n_RPL_THEMES_OBESITY,True,2956
+pair_n_RPL_THEMES_COPD,True,2956
+pair_n_RPL_THEME1_DIABETES,True,2956
+pair_n_RPL_THEME1_CHD,True,2956
+pair_n_RPL_THEME1_BPHIGH,True,2956
+pair_n_RPL_THEME1_OBESITY,True,2956
+pair_n_RPL_THEME1_COPD,True,2956
+pair_n_RPL_THEME2_DIABETES,True,2956
+pair_n_RPL_THEME2_CHD,True,2956
+pair_n_RPL_THEME2_BPHIGH,True,2956
+pair_n_RPL_THEME2_OBESITY,True,2956
+pair_n_RPL_THEME2_COPD,True,2956
+pair_n_RPL_THEME3_DIABETES,True,2956
+pair_n_RPL_THEME3_CHD,True,2956
+pair_n_RPL_THEME3_BPHIGH,True,2956
+pair_n_RPL_THEME3_OBESITY,True,2956
+pair_n_RPL_THEME3_COPD,True,2956
+pair_n_RPL_THEME4_DIABETES,True,2956
+pair_n_RPL_THEME4_CHD,True,2956
+pair_n_RPL_THEME4_BPHIGH,True,2956
+pair_n_RPL_THEME4_OBESITY,True,2956
+pair_n_RPL_THEME4_COPD,True,2956
+rho_range,True,"[-1, 1]"
