@@ -1,0 +1,856 @@
+{
+  "status": "completed",
+  "source_csv_sha256": {
+    "q3_county_svi.csv": "b2948a1266fc50749f15468e4cf528f852431cda77aa4cbe127d2b2a80bffa6e",
+    "q3_national_summary.csv": "6fa036ca976038bd8852593865ed74afa5b40f1f1a72a7ee48c2bb6de727b9e0",
+    "q4_correlations.csv": "7a0cdd6f5a91e6fb954f2bb35a1c5ca2dce39e4ecd32031e12ad6704a3fca7b1",
+    "q4_correlations_tidy.csv": "c42f6efe16f6c85cb17b7fbc96e90a47b98447b4cf55f078b283865d92faaa1e"
+  },
+  "statistics_recalculated": false,
+  "source_csvs_modified": false,
+  "coefficient_display": "Original CSV tokens, full source precision; no rounding",
+  "prevalence_display": "One decimal; Decimal equality checked, no value changes",
+  "svi_display": "Four decimals; Decimal equality checked, no value changes",
+  "reference": "Startup.pdf pages 18–19 and 25–26; 1440 × 810 points, Georgia Bold + Arial, #0F2742 navy header, white cells as requested",
+  "png_pixels": [
+    4320,
+    2430
+  ],
+  "png_dpi": 300,
+  "pdf_extraction_note": "Visible Arial hyphen glyph U+00AD normalized to ASCII hyphen only for text comparison; source/drawn tokens unchanged",
+  "workbook": "3 native editable sheets; numeric values retained; county FIPS stored as text; no formulas",
+  "rendered_cell_checks": [
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_0",
+      "text": "36005",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_1",
+      "text": "Bronx, NY",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_2",
+      "text": "14.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_3",
+      "text": "6.3",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_4",
+      "text": "34.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_5",
+      "text": "33.7",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_6",
+      "text": "6.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_0_7",
+      "text": "0.9965",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_0",
+      "text": "36047",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_1",
+      "text": "Kings, NY",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_2",
+      "text": "11.1",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_3",
+      "text": "5.1",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_4",
+      "text": "28.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_5",
+      "text": "25.0",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_6",
+      "text": "5.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_1_7",
+      "text": "0.8874",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_0",
+      "text": "36061",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_1",
+      "text": "New York, NY",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_2",
+      "text": "8.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_3",
+      "text": "4.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_4",
+      "text": "25.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_5",
+      "text": "19.5",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_6",
+      "text": "4.1",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_2_7",
+      "text": "0.7283",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_0",
+      "text": "36081",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_1",
+      "text": "Queens, NY",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_2",
+      "text": "12.2",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_3",
+      "text": "4.9",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_4",
+      "text": "29.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_5",
+      "text": "23.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_6",
+      "text": "4.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_3_7",
+      "text": "0.8024",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_0",
+      "text": "36085",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_1",
+      "text": "Richmond, NY",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_2",
+      "text": "10.1",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_3",
+      "text": "4.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_4",
+      "text": "30.3",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_5",
+      "text": "30.0",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_6",
+      "text": "5.2",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_4_7",
+      "text": "0.5956",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_0",
+      "text": "06037",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_1",
+      "text": "Los Angeles, CA",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_2",
+      "text": "11.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_3",
+      "text": "4.8",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_4",
+      "text": "28.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_5",
+      "text": "26.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_6",
+      "text": "4.5",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_5_7",
+      "text": "0.8629",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_0",
+      "text": "17031",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_1",
+      "text": "Cook, IL",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_2",
+      "text": "10.7",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_3",
+      "text": "4.7",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_4",
+      "text": "28.9",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_5",
+      "text": "31.0",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_6",
+      "text": "5.2",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_6_7",
+      "text": "0.7964",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_0",
+      "text": "48201",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_1",
+      "text": "Harris, TX",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_2",
+      "text": "13.2",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_3",
+      "text": "5.5",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_4",
+      "text": "32.9",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_5",
+      "text": "37.1",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_6",
+      "text": "5.5",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_7_7",
+      "text": "0.9201",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_0",
+      "text": "04013",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_1",
+      "text": "Maricopa, AZ",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_2",
+      "text": "9.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_3",
+      "text": "5.0",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_4",
+      "text": "28.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_5",
+      "text": "30.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_6",
+      "text": "5.2",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_8_7",
+      "text": "0.7130",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_0",
+      "text": "12086",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_1",
+      "text": "Miami-Dade, FL",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_2",
+      "text": "13.3",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_3",
+      "text": "5.7",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_4",
+      "text": "30.3",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_5",
+      "text": "29.3",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_6",
+      "text": "4.7",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_9_7",
+      "text": "0.8810",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_0",
+      "text": "28049",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_1",
+      "text": "Hinds, MS",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_2",
+      "text": "15.3",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_3",
+      "text": "6.1",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_4",
+      "text": "45.7",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_5",
+      "text": "44.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_6",
+      "text": "7.0",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_10_7",
+      "text": "0.9154",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_0",
+      "text": "01001",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_1",
+      "text": "Autauga, AL",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_2",
+      "text": "11.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_3",
+      "text": "5.6",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_4",
+      "text": "38.2",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_5",
+      "text": "39.5",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_6",
+      "text": "6.4",
+      "passed": true
+    },
+    {
+      "table": "q3_county_svi",
+      "cell": "cell_11_7",
+      "text": "0.2663",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_0_0",
+      "text": "Diabetes",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_0_1",
+      "text": "0.751382143",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_0_2",
+      "text": "2,956",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_1_0",
+      "text": "Coronary heart disease (CHD)",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_1_1",
+      "text": "0.6188331648",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_1_2",
+      "text": "2,956",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_2_0",
+      "text": "High blood pressure",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_2_1",
+      "text": "0.6000084217",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_2_2",
+      "text": "2,956",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_3_0",
+      "text": "Obesity",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_3_1",
+      "text": "0.3408422738",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_3_2",
+      "text": "2,956",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_4_0",
+      "text": "COPD",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_4_1",
+      "text": "0.4963963318",
+      "passed": true
+    },
+    {
+      "table": "q3_national_summary",
+      "cell": "cell_4_2",
+      "text": "2,956",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_0_0",
+      "text": "1 · Socioeconomic Status",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_0_1",
+      "text": "0.785864984",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_0_2",
+      "text": "0.7088121286",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_0_3",
+      "text": "0.6640942516",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_0_4",
+      "text": "0.3752651268",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_0_5",
+      "text": "0.6154557701",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_1_0",
+      "text": "2 · Household Characteristics",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_1_1",
+      "text": "0.5554944015",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_1_2",
+      "text": "0.4764135034",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_1_3",
+      "text": "0.4421463376",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_1_4",
+      "text": "0.3320598442",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_1_5",
+      "text": "0.3851537805",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_2_0",
+      "text": "3 · Racial and Ethnic\nMinority Status",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_2_1",
+      "text": "0.5080556422",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_2_2",
+      "text": "0.1625900971",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_2_3",
+      "text": "0.3099876762",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_2_4",
+      "text": "0.06911417266",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_2_5",
+      "text": "-0.01640287582",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_3_0",
+      "text": "4 · Housing Type\nand Transportation",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_3_1",
+      "text": "0.4277572597",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_3_2",
+      "text": "0.3545215035",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_3_3",
+      "text": "0.3241019388",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_3_4",
+      "text": "0.1679089598",
+      "passed": true
+    },
+    {
+      "table": "q4_correlations",
+      "cell": "cell_3_5",
+      "text": "0.2685124937",
+      "passed": true
+    }
+  ],
+  "files": {
+    "q3_county_svi.png": {
+      "bytes": 423087,
+      "sha256": "452df3e50cb2df5d51906029c3ee9df558cf1dee71df178bb9a7720ade223662"
+    },
+    "q3_national_summary.png": {
+      "bytes": 291208,
+      "sha256": "04770bfc6990d23e24b55373f3d2cc8bef87230bbb50514b3cd0934c9d5a4a2c"
+    },
+    "q3_q4_tables.pdf": {
+      "bytes": 1084131,
+      "sha256": "10e24c734dd099f793de12d42042208d46e828f79a875d01a09367fc8e2dea3b"
+    },
+    "q3_q4_tables.xlsx": {
+      "bytes": 9629,
+      "sha256": "d4f58c81cf7d1083c264001a3e6d91c31c1bc6acbe424190e0e960ffc09d1ffd"
+    },
+    "q4_correlations.png": {
+      "bytes": 328067,
+      "sha256": "35de5f711010da874d2632f63d950eeef1eabce5689e30f0c9415d875ccc5296"
+    }
+  }
+}

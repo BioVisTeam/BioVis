@@ -1,0 +1,10 @@
+{
+  "acquisition": "user_supplied_original_CDC_export",
+  "original_filename": "SVI_2022_US_COUNTY.csv",
+  "cached_filename": "svi_2022_us_county.csv",
+  "source_page": "https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html",
+  "observed_utc": "2026-11-02T20:45:15.221423+00:00",
+  "sha256": "bc47d244153e359d5c09f621a4bf344a1e593159c16fbd3c28a15461b70a6c0f",
+  "bytes": 2301480,
+  "note": "The user supplied this file; no direct download timestamp is asserted."
+}

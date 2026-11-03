@@ -1,0 +1,10 @@
+{
+  "acquisition": "user_supplied_original_CDC_export",
+  "original_filename": "PLACES__County_Data_(GIS_Friendly_Format),_2025_release_20261102.csv",
+  "cached_filename": "places_2025_county_gis.csv",
+  "source_page": "https://data.cdc.gov/d/i46a-9kgh",
+  "observed_utc": "2026-11-02T20:45:15.216954+00:00",
+  "sha256": "b446f7573c3cf22939b1e789637cfd34e58d7cfc870dbbfcd3a3d6fb3a990a2c",
+  "bytes": 5317472,
+  "note": "The user supplied this file; no direct download timestamp is asserted."
+}

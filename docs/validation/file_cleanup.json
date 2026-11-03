@@ -1,0 +1,23 @@
+{
+  "status": "completed",
+  "observed_utc": "2026-11-02T22:12:25.167159+00:00",
+  "n_final_processed_csvs": 4,
+  "raw_csvs": 2,
+  "statistics_recalculated": false,
+  "final_csvs_byte_identical": true,
+  "presentation_body_cells_identical": 135,
+  "original_statistical_notebook_outputs_preserved": true,
+  "notebook_and_scripts_current_paths_consistent": true,
+  "primary_csv_sha256": {
+    "q3_county_svi.csv": "b2948a1266fc50749f15468e4cf528f852431cda77aa4cbe127d2b2a80bffa6e",
+    "q3_national_summary.csv": "6fa036ca976038bd8852593865ed74afa5b40f1f1a72a7ee48c2bb6de727b9e0",
+    "q4_correlations.csv": "7a0cdd6f5a91e6fb954f2bb35a1c5ca2dce39e4ecd32031e12ad6704a3fca7b1",
+    "q4_correlations_tidy.csv": "c42f6efe16f6c85cb17b7fbc96e90a47b98447b4cf55f078b283865d92faaa1e"
+  },
+  "canonical_table_sources": {
+    "q3_county_svi.png": "data/processed/q3_county_svi.csv: same 12 fixed FIPS",
+    "q3_national_summary.png": "data/processed/q3_national_summary.csv: all five rows",
+    "q4_correlations.png": "data/processed/q4_correlations.csv: all 20 coefficients; n from q4_correlations_tidy.csv"
+  },
+  "cleanup": "Redundant subset/count CSVs, extra source copies, superseded image names and old bundles removed; diagnostic files consolidated under docs/validation."
+}

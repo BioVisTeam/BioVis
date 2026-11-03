@@ -1,0 +1,652 @@
+{
+  "run_utc": "2026-11-02T20:47:33.524736+00:00",
+  "status": "completed",
+  "raw": {
+    "places": {
+      "rows": 3143,
+      "duplicate_full_rows": 0
+    },
+    "svi": {
+      "rows": 3144,
+      "duplicate_full_rows": 0
+    }
+  },
+  "in_scope": {
+    "places": 3143,
+    "svi": 3144
+  },
+  "merged_counties": 3144,
+  "matched_counties": 3143,
+  "places_only_counties": 0,
+  "svi_only_counties": 1,
+  "fips_match_rate_places_denominator": 1.0,
+  "fips_match_rate_svi_denominator": 0.9996819338422391,
+  "fips_match_rate_union_denominator": 0.9996819338422391,
+  "duplicate_fips_after_cleaning": {
+    "places": 0,
+    "svi": 0
+  },
+  "duplicate_fips_merged": 0,
+  "missing_counts": {
+    "county_fips": 0,
+    "state": 0,
+    "county": 0,
+    "pop18plus": 1,
+    "DIABETES_adj": 188,
+    "DIABETES_adj_lo": 188,
+    "DIABETES_adj_hi": 188,
+    "CHD_adj": 188,
+    "CHD_adj_lo": 188,
+    "CHD_adj_hi": 188,
+    "BPHIGH_adj": 188,
+    "BPHIGH_adj_lo": 188,
+    "BPHIGH_adj_hi": 188,
+    "OBESITY_adj": 188,
+    "OBESITY_adj_lo": 188,
+    "OBESITY_adj_hi": 188,
+    "COPD_adj": 188,
+    "COPD_adj_lo": 188,
+    "COPD_adj_hi": 188,
+    "RPL_THEMES": 0,
+    "RPL_THEME1": 0,
+    "RPL_THEME2": 0,
+    "RPL_THEME3": 0,
+    "RPL_THEME4": 0,
+    "is_nyc": 0,
+    "borough": 3139,
+    "join_status": 0
+  },
+  "issue_counts": {
+    "source_missing": 935,
+    "source_missing_or_sentinel_ci": 935
+  },
+  "explicit_scope_exclusions": 0,
+  "q1": {
+    "exists": false,
+    "reused": false,
+    "scope_verified": false,
+    "reason": "Q1 file was not provided; independently use official PLACES. Q1 scope/field convention comparison remains pending."
+  },
+  "observed_ranges": {
+    "DIABETES_adj": {
+      "min": 6.0,
+      "max": 23.8
+    },
+    "DIABETES_adj_lo": {
+      "min": 5.1,
+      "max": 21.3
+    },
+    "DIABETES_adj_hi": {
+      "min": 7.1,
+      "max": 26.6
+    },
+    "CHD_adj": {
+      "min": 3.8,
+      "max": 11.4
+    },
+    "CHD_adj_lo": {
+      "min": 3.4,
+      "max": 10.2
+    },
+    "CHD_adj_hi": {
+      "min": 4.4,
+      "max": 12.8
+    },
+    "BPHIGH_adj": {
+      "min": 21.0,
+      "max": 53.1
+    },
+    "BPHIGH_adj_lo": {
+      "min": 18.6,
+      "max": 48.3
+    },
+    "BPHIGH_adj_hi": {
+      "min": 23.6,
+      "max": 57.6
+    },
+    "OBESITY_adj": {
+      "min": 17.1,
+      "max": 54.0
+    },
+    "OBESITY_adj_lo": {
+      "min": 13.7,
+      "max": 45.5
+    },
+    "OBESITY_adj_hi": {
+      "min": 21.0,
+      "max": 62.7
+    },
+    "COPD_adj": {
+      "min": 3.2,
+      "max": 15.0
+    },
+    "COPD_adj_lo": {
+      "min": 2.6,
+      "max": 12.9
+    },
+    "COPD_adj_hi": {
+      "min": 3.9,
+      "max": 17.1
+    },
+    "RPL_THEMES": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "RPL_THEME1": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "RPL_THEME2": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "RPL_THEME3": {
+      "min": 0.0,
+      "max": 1.0
+    },
+    "RPL_THEME4": {
+      "min": 0.0,
+      "max": 1.0
+    }
+  },
+  "nyc": {
+    "36005": {
+      "present": true,
+      "borough": "Bronx"
+    },
+    "36047": {
+      "present": true,
+      "borough": "Brooklyn"
+    },
+    "36061": {
+      "present": true,
+      "borough": "Manhattan"
+    },
+    "36081": {
+      "present": true,
+      "borough": "Queens"
+    },
+    "36085": {
+      "present": true,
+      "borough": "Staten Island"
+    }
+  },
+  "correlations": [
+    {
+      "theme": "RPL_THEMES",
+      "disease": "DIABETES",
+      "correlation": 0.7513821430149338,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEMES",
+      "disease": "CHD",
+      "correlation": 0.6188331648499918,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEMES",
+      "disease": "BPHIGH",
+      "correlation": 0.600008421743013,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEMES",
+      "disease": "OBESITY",
+      "correlation": 0.3408422737786419,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEMES",
+      "disease": "COPD",
+      "correlation": 0.49639633180940934,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME1",
+      "disease": "DIABETES",
+      "correlation": 0.7858649840136858,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME1",
+      "disease": "CHD",
+      "correlation": 0.7088121285712219,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME1",
+      "disease": "BPHIGH",
+      "correlation": 0.6640942515640592,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME1",
+      "disease": "OBESITY",
+      "correlation": 0.3752651268464901,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME1",
+      "disease": "COPD",
+      "correlation": 0.6154557701411945,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME2",
+      "disease": "DIABETES",
+      "correlation": 0.5554944015142328,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME2",
+      "disease": "CHD",
+      "correlation": 0.4764135033648498,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME2",
+      "disease": "BPHIGH",
+      "correlation": 0.4421463375872367,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME2",
+      "disease": "OBESITY",
+      "correlation": 0.33205984416720435,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME2",
+      "disease": "COPD",
+      "correlation": 0.38515378049174465,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME3",
+      "disease": "DIABETES",
+      "correlation": 0.5080556421512797,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME3",
+      "disease": "CHD",
+      "correlation": 0.16259009709566027,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME3",
+      "disease": "BPHIGH",
+      "correlation": 0.30998767623192175,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME3",
+      "disease": "OBESITY",
+      "correlation": 0.06911417265772456,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME3",
+      "disease": "COPD",
+      "correlation": -0.016402875822146015,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME4",
+      "disease": "DIABETES",
+      "correlation": 0.427757259724868,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME4",
+      "disease": "CHD",
+      "correlation": 0.3545215034994798,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME4",
+      "disease": "BPHIGH",
+      "correlation": 0.324101938835906,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME4",
+      "disease": "OBESITY",
+      "correlation": 0.16790895982012222,
+      "n_counties": 2956
+    },
+    {
+      "theme": "RPL_THEME4",
+      "disease": "COPD",
+      "correlation": 0.26851249365037755,
+      "n_counties": 2956
+    }
+  ],
+  "checks": [
+    {
+      "check": "unique_merged_fips",
+      "passed": true,
+      "detail": 3144
+    },
+    {
+      "check": "five_digit_fips",
+      "passed": true,
+      "detail": "5-digit strings"
+    },
+    {
+      "check": "national_states_only",
+      "passed": true,
+      "detail": "50 states + DC"
+    },
+    {
+      "check": "all_source_counties_retained",
+      "passed": true,
+      "detail": "Outer join; no county removed for missing values"
+    },
+    {
+      "check": "nyc_five_present",
+      "passed": true,
+      "detail": [
+        "36005",
+        "36047",
+        "36061",
+        "36081",
+        "36085"
+      ]
+    },
+    {
+      "check": "nyc_all_sources_matched",
+      "passed": true,
+      "detail": "Five NYC FIPS must occur in both sources"
+    },
+    {
+      "check": "nyc_boroughs_only",
+      "passed": true,
+      "detail": "Official county names retained; borough labels added separately"
+    },
+    {
+      "check": "adult_population_valid",
+      "passed": true,
+      "detail": "Nullable nonnegative integer; context only"
+    },
+    {
+      "check": "range_DIABETES_adj",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_DIABETES_adj_lo",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_DIABETES_adj_hi",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_CHD_adj",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_CHD_adj_lo",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_CHD_adj_hi",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_BPHIGH_adj",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_BPHIGH_adj_lo",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_BPHIGH_adj_hi",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_OBESITY_adj",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_OBESITY_adj_lo",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_OBESITY_adj_hi",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_COPD_adj",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_COPD_adj_lo",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_COPD_adj_hi",
+      "passed": true,
+      "detail": "Nonmissing range [0, 100]"
+    },
+    {
+      "check": "range_RPL_THEMES",
+      "passed": true,
+      "detail": "Nonmissing range [0, 1]"
+    },
+    {
+      "check": "range_RPL_THEME1",
+      "passed": true,
+      "detail": "Nonmissing range [0, 1]"
+    },
+    {
+      "check": "range_RPL_THEME2",
+      "passed": true,
+      "detail": "Nonmissing range [0, 1]"
+    },
+    {
+      "check": "range_RPL_THEME3",
+      "passed": true,
+      "detail": "Nonmissing range [0, 1]"
+    },
+    {
+      "check": "range_RPL_THEME4",
+      "passed": true,
+      "detail": "Nonmissing range [0, 1]"
+    },
+    {
+      "check": "ci_order_DIABETES",
+      "passed": true,
+      "detail": "lower <= estimate <= upper when available"
+    },
+    {
+      "check": "ci_order_CHD",
+      "passed": true,
+      "detail": "lower <= estimate <= upper when available"
+    },
+    {
+      "check": "ci_order_BPHIGH",
+      "passed": true,
+      "detail": "lower <= estimate <= upper when available"
+    },
+    {
+      "check": "ci_order_OBESITY",
+      "passed": true,
+      "detail": "lower <= estimate <= upper when available"
+    },
+    {
+      "check": "ci_order_COPD",
+      "passed": true,
+      "detail": "lower <= estimate <= upper when available"
+    },
+    {
+      "check": "q4_shape",
+      "passed": true,
+      "detail": [
+        4,
+        5
+      ]
+    },
+    {
+      "check": "q4_unique_pairs",
+      "passed": true,
+      "detail": "20 distinct theme-disease pairs"
+    },
+    {
+      "check": "q4_matrix_tidy_agree",
+      "passed": true,
+      "detail": "All 20 matrix cells agree with tidy rows"
+    },
+    {
+      "check": "q3_five_correlations",
+      "passed": true,
+      "detail": 5
+    },
+    {
+      "check": "pair_n_RPL_THEMES_DIABETES",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEMES_CHD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEMES_BPHIGH",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEMES_OBESITY",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEMES_COPD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME1_DIABETES",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME1_CHD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME1_BPHIGH",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME1_OBESITY",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME1_COPD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME2_DIABETES",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME2_CHD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME2_BPHIGH",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME2_OBESITY",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME2_COPD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME3_DIABETES",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME3_CHD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME3_BPHIGH",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME3_OBESITY",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME3_COPD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME4_DIABETES",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME4_CHD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME4_BPHIGH",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME4_OBESITY",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "pair_n_RPL_THEME4_COPD",
+      "passed": true,
+      "detail": 2956
+    },
+    {
+      "check": "rho_range",
+      "passed": true,
+      "detail": "[-1, 1]"
+    }
+  ]
+}
