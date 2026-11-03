@@ -13,7 +13,6 @@ BioVis/
 │       ├── q3_national_summary.csv   # five overall-SVI correlations + n
 │       ├── q4_correlations.csv       # 4 × 5 coefficient matrix
 │       └── q4_correlations_tidy.csv  # 20 coefficients + pairwise n
-├── presentation_tables/
 │   ├── q3_county_svi.png             # 12 selected rows of the county table
 │   ├── q3_national_summary.png       # five national associations
 │   ├── q4_correlations.png           # full correlation matrix
@@ -61,7 +60,6 @@ From BioVis, with the listed Python dependencies installed:
 
 ```sh
 python src/q3_q4_transform.py --root . --no-download
-python src/render_m2_data_tables.py --root .
 ```
 
 The transformation exports four final CSVs to `data/processed` and verification
