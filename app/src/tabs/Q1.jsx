@@ -84,12 +84,12 @@ export default function Q1() {
         </aside>
       </div>
       <h2>All five conditions</h2>
-      <p className="small-note">Each map uses its own quintiles. The same county is outlined on every map when you hover.</p>
+      <p className="small-note">Each map uses its own quintiles. Hover a county on the large map to outline it on every map here.</p>
       <div className="small-multiples">
         {CONDITIONS.map((c) => (
           <figure key={c.key}>
             <figcaption>{c.label}</figcaption>
-            <CountyChoro geo={data.countyGeo} styleFor={smallStyles[c.key]} width={360} height={220}
+            <CountyChoro geo={data.countyGeo} styleFor={smallStyles[c.key]} width={360} height={220} linked={false}
               ariaLabel={`${c.label} by county`} />
             <div className="breaks">
               {scales[c.key].breaks.map((b, i) => <span key={i}>{b.toFixed(1)}</span>)}
