@@ -1,6 +1,6 @@
 // Q5: do the highest-prevalence NYC tracts also have the most affected adults?
-// One condition at a time (no "All": summed conditions double-count people).
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
+import * as d3 from "d3";
 import { COND_LABEL } from "../lib/constants.js";
 import { fmt1, fmtInt } from "../lib/format.js";
 import { q5Summary } from "../lib/q5.js";
@@ -9,21 +9,19 @@ import { useData } from "../data/DataProvider.jsx";
 import TractScatter from "../charts/TractScatter.jsx";
 import HoverCard from "../components/HoverCard.jsx";
 import Question from "../components/Question.jsx";
-import CondPicker from "../components/CondPicker.jsx";
 
 export default function Q5() {
   const data = useData();
   const { state } = useAppState();
   const { cond } = state;
 
+  // Load q5.csv from the public folder for the scatterplot
+  const [rows, setRows] = useState(null);
+  useEffect(() => {
+    d3.csv(import.meta.env.BASE_URL + "data/q5.csv", d3.autoType).then(setRows);
+  }, []);
+
   const summary = useMemo(() => q5Summary(data.nycTracts, cond), [data.nycTracts, cond]);
-  const points = useMemo(
-    () =>
-      data.nycTracts
-        .filter((t) => t[cond] != null && t[`${cond}_affected`] != null)
-        .map((t) => ({ id: t.id, borough: t.borough, x: t[cond], y: t[`${cond}_affected`], small: t.small })),
-    [data.nycTracts, cond],
-  );
   const q = summary.quadrants;
 
   return (
@@ -35,7 +33,7 @@ export default function Q5() {
       shows={[
         `Quadrant counts for ${COND_LABEL[cond]} (ranked tracts): high rate and many people ${fmtInt(q.highRateManyPeople)}; high rate, few people ${fmtInt(q.highRateFewPeople)}; many people, moderate rate ${fmtInt(q.manyPeopleModerateRate)}; neither ${fmtInt(q.neither)}.`,
         `Top-10% cut-offs: rate at or above ${fmt1(summary.xCut)}%; affected adults at or above ${fmtInt(summary.yCut)}.`,
-        "Use the condition buttons to switch. There is no 'All' option: adding condition counts would count the same person more than once.",
+        "Use the Condition dropdown to switch conditions, and the borough checkboxes to choose which boroughs to compare. 'All' adds the five condition counts together, so a person with more than one condition is counted more than once.",
       ]}
       caveats={[
         "Affected adults are estimates (prevalence times adults), not counts. Because the count is built from the rate, the two axes are partly linked by construction.",
@@ -43,11 +41,13 @@ export default function Q5() {
         "Association, not cause.",
       ]}
     >
-      <CondPicker />
       <div className="q5-main">
         <div>
-          <TractScatter tracts={points} xCut={summary.xCut} yCut={summary.yCut}
-            ariaLabel={`NYC tracts: ${COND_LABEL[cond]} rate against estimated affected adults`} />
+          {rows ? (
+            <TractScatter rows={rows} ariaLabel="NYC tracts: prevalence against estimated affected adults" />
+          ) : (
+            <p>Loading tract data...</p>
+          )}
         </div>
         <aside className="side">
           <HoverCard kinds={["tract"]} nycOnly />
