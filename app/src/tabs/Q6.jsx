@@ -2,7 +2,7 @@
 // Selection runs on all US tracts. The map shows selected tracts per county (US) or
 // individual NYC tracts (NYC scope). The wording is "places for closer review", never "priority of care".
 import { useMemo } from "react";
-import { COND_LABEL, CONDITIONS, BLUES, NYC_FIPS, SURFACE } from "../lib/constants.js";
+import { COND_LABEL, CONDITIONS, BLUES, NYC_FIPS, SURFACE, NOT_SELECTED } from "../lib/constants.js";
 import { FILL_DOTS, FILL_MISSING } from "../lib/patterns.js";
 import { makeScale } from "../lib/scales.js";
 import { fmtInt } from "../lib/format.js";
@@ -43,7 +43,7 @@ export default function Q6() {
   const tractStyle = useMemo(() => (id) => {
     const s = r.state.get(id);
     if (s === "selected") return { fill: NYC_SELECTED, opacity: 1 };
-    if (s === "not selected") return { fill: "#e6e5df", opacity: 1 };
+    if (s === "not selected") return { fill: NOT_SELECTED, opacity: 1 };
     if (s === "SVI not available") return { fill: FILL_MISSING, opacity: 1 };
     return { fill: FILL_DOTS, opacity: 1 };
   }, [r]);
@@ -59,6 +59,7 @@ export default function Q6() {
     return { selected, eligible };
   }, [r]);
 
+  const readText = "Eligible = a crude estimate and at least 500 adults. Three criteria, each the top X% among eligible tracts nationally: prevalence (crude %), affected adults (estimated count), and overall SVI. A tract is selected when it meets at least k of the three (k = 1 is 'any', k = 3 is 'all'). A tract with no SVI can still meet the other two; it is counted as 'SVI not available', never as 'not selected'. Change the condition, the threshold X and k to see the counts, the overlap bars and the map update.";
   const pct1 = (x) => `${(x * 100).toFixed(0)}%`;
   const sel = (n) => `${fmtInt(n)}`;
 
@@ -67,7 +68,6 @@ export default function Q6() {
       title="Q6. Places for closer review"
       question="How does the set of places for closer review change with the criterion and the threshold?"
       answer={`With the default (diabetes, top 10%, at least 2 of 3 criteria), ${sel(r.selected)} of the ${sel(r.eligible)} eligible US tracts are selected. Each criterion alone picks about 8,000 tracts, but only 1,191 meet all three. The criterion you choose changes the answer more than the threshold does.`}
-      read="Eligible = a crude estimate and at least 500 adults. Three criteria, each the top X% among eligible tracts nationally: prevalence (crude %), affected adults (estimated count), and overall SVI. A tract is selected when it meets at least k of the three (k = 1 is 'any', k = 3 is 'all'). A tract with no SVI can still meet the other two; it is counted as 'SVI not available', never as 'not selected'. Change the condition, the threshold X and k to see the counts, the overlap bars and the map update."
       shows={[
         `Default cut-offs (${COND_LABEL[cond]}, X = ${X}%): prevalence at or above ${cutP.toFixed(1)}%; affected adults at or above ${fmtInt(cutA)}; SVI at or above ${r.cutoffs.svi.toFixed(2)}.`,
         `Eligible ${sel(r.eligible)} of ${sel(r.tracts)} tracts; excluded ${sel(r.excluded)} (no estimate or under 500 adults); eligible with SVI missing ${sel(r.sviMissing)}.`,
@@ -75,7 +75,7 @@ export default function Q6() {
         `NYC, same national cut-offs: ${sel(nyc.selected)} selected of ${sel(nyc.eligible)} eligible NYC tracts.`,
       ]}
       caveats={[
-        "Scope: Q6 is national at the tract level. In this draft the map summarises selected tracts per county; individual tracts are drawn for NYC. Per-state tract geometry is planned for Milestone 4.",
+        "Scope: Q6 selects across all US tracts. Its US map summarises the selected tracts by county and NYC tracts are shown individually. National tract outlines are on the Overview map.",
         "Missing SVI is shown as its own category. Tracts without a PLACES estimate (PA, KY) are excluded, not counted as not selected.",
         "The criteria partly restate PLACES and SVI inputs (the overlap in Data & Methods). Places for closer review are an exploratory screen, not a judgement about care or priority.",
       ]}
@@ -118,6 +118,10 @@ export default function Q6() {
         <div>
           <h2>Overlap of the three criteria (eligible tracts)</h2>
           <OverlapBars overlap={r.overlap} ariaLabel="Overlap of prevalence, affected adults and SVI criteria" />
+          <section className="q6-read">
+            <h2>How to read it</h2>
+            <p>{readText}</p>
+          </section>
         </div>
         <div>
           <h2>{scope === "US" ? "Selected tracts per county" : "NYC tracts by selection status"}</h2>
@@ -134,7 +138,7 @@ export default function Q6() {
             <div className="legend">
               <div className="legend-title">NYC tracts</div>
               <div className="legend-row"><span className="swatch" style={{ background: NYC_SELECTED }} /> selected</div>
-              <div className="legend-row"><span className="swatch" style={{ background: "#e6e5df" }} /> not selected</div>
+              <div className="legend-row"><span className="swatch" style={{ background: NOT_SELECTED }} /> not selected</div>
               <div className="legend-row"><span className="swatch hatched" /> SVI not available</div>
               <div className="legend-row"><span className="swatch dotted" /> not eligible (no estimate or under 500 adults)</div>
             </div>

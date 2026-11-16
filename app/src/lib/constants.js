@@ -29,12 +29,24 @@ export const MEASURE_LABEL = Object.fromEntries(
   [...CONDITIONS, ...SVI_MEASURES].map((m) => [m.key, m.label]),
 );
 
-export const BLUES = ["#b7d3f6", "#86b6ef", "#3987e5", "#1c5cab", "#0d366b"];
-export const MISSING = "#d9d8d2";
-export const MARK = "#d03b3b";
-export const SURFACE = "#fcfcfb";
-// Diverging scale for Q4: blue (negative), gray at zero, red (positive).
-export const DIVERGING = ["#2b5d9e", "#86b6ef", "#d9d8d2", "#f0a08a", "#b03a2e"];
+// Dark scheme, one teal hue family (hue ~185). Low = deep teal, high = bright aqua, so the top
+// class stays clearly apart from the dark ground. Replaces the M2 blue ramp (owner request).
+export const BLUES = ["#1d5560", "#23808f", "#2fb0b8", "#74dcd4", "#d2fbee"];
+export const MISSING = "#2c3d43";        // hatch base: no estimate
+export const MISSING_LINE = "#6c858c";   // hatch and dot marks
+export const MARK = "#ffb454";           // county marker and highlight (amber, the one accent)
+export const SURFACE = "#0b1e24";        // map ground
+export const SEAM = "#061317";           // thin seam between polygons
+export const HILITE = "#f2fbfb";         // hover and pinned outline
+// Outline widths (screen px): one highlight style everywhere. A pinned place keeps its outline.
+export const HOVER_W = 1.6, PIN_W = 2.4;
+export const INK = "#eaf6f6";
+export const MUTED = "#9db8bc";          // chart axes and secondary text
+export const BAR = "#3fc4c4";            // dots, bars
+export const BAR_SOFT = "#164650";       // boxes, shaded bands
+export const NOT_SELECTED = "#26373d";
+// Diverging scale for Q4: cool blue (negative), dark neutral at zero, warm orange (positive).
+export const DIVERGING = ["#6ab8ee", "#2f6f98", "#2b3a40", "#a9593a", "#f59a72"];
 
 export const NYC_COUNTIES = {
   "36005": "Bronx",

@@ -69,7 +69,7 @@ export default function Q4() {
           yLabel={`${COND_LABEL[cond]}, age-adjusted (%)`} ariaLabel={`Scatter of ${COND_LABEL[cond]} against ${themeName}`} />
         <aside className="side">
           <p className="stat">Spearman rho = <strong>{fmt2(rho)}</strong>, n = {pairs.length.toLocaleString("en-US")} counties</p>
-          <HoverCard />
+          <HoverCard kinds={["county"]} />
         </aside>
       </div>
     </Question>

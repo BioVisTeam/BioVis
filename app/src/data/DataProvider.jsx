@@ -12,6 +12,18 @@ export function loadNycGeo() {
   return nycGeoPromise;
 }
 
+// Per-state tract outlines (public/data/tracts/<state fips>.geojson, built by scripts/build_tract_geo.py).
+// Resolves to null when the file is missing (the dev server answers a missing file with HTML, so any failure counts).
+// Only in-flight requests are shared: the parsed GeoJSON is large, so the caller keeps what it builds from it.
+const stateTractPromises = new Map();
+export function loadStateTracts(fips) {
+  if (!stateTractPromises.has(fips)) {
+    stateTractPromises.set(fips, d3.json(`${base}tracts/${fips}.geojson`).then((g) => (g?.features ? g : null), () => null)
+      .finally(() => stateTractPromises.delete(fips)));
+  }
+  return stateTractPromises.get(fips);
+}
+
 export function DataProvider({ children }) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);

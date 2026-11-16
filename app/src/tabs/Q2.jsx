@@ -72,7 +72,7 @@ export default function Q2() {
       caveats={[
         "Tract values are crude and come from a model applied to census block counts; the page has no tract-level input. The spread is modeled variation from tract demographics, not measured tract disease.",
         "Tract confidence intervals are wide for small tracts; 21 NYC tracts with under 500 adults are excluded.",
-        "Only NYC is shown at tract level in this draft.",
+        "Q2 covers NYC only, by design. The Overview map also shows tract outlines for other states when you zoom in.",
       ]}
     >
       <div className="cond-picker">
@@ -96,7 +96,7 @@ export default function Q2() {
           <h2>Tracts by borough, same y-scale</h2>
           <Boxplots tracts={boxTracts} yMax={yMax} brushRange={brushRange} onBrush={onBrush}
             borough={borough} onBorough={onBorough} ariaLabel={`Box plots of ${COND_LABEL[cond]} by NYC borough`} />
-          <HoverCard />
+          <HoverCard kinds={["tract"]} nycOnly />
         </div>
       </div>
       <h2>Borough summary, {COND_LABEL[cond]} (live)</h2>

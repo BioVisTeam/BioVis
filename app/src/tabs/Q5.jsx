@@ -50,7 +50,7 @@ export default function Q5() {
             ariaLabel={`NYC tracts: ${COND_LABEL[cond]} rate against estimated affected adults`} />
         </div>
         <aside className="side">
-          <HoverCard />
+          <HoverCard kinds={["tract"]} nycOnly />
         </aside>
       </div>
     </Question>

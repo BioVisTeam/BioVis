@@ -1,18 +1,22 @@
-// Shows the hovered place, or the pinned one when nothing is hovered.
+// Shows the hovered place, or the pinned one when nothing is hovered. `kinds` lists what the page
+// shows ("county", "tract"); a pin of another kind is ignored. nycOnly: tract pins must be NYC tracts.
 import { CONDITIONS, COND_LABEL, SVI_MEASURES, THEME_SHORT, SMALL_TRACT_ADULTS } from "../lib/constants.js";
 import { ci, fmt1, fmt2, fmtInt } from "../lib/format.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData } from "../data/DataProvider.jsx";
 
-export default function HoverCard() {
+export default function HoverCard({ kinds = ["county", "tract"], nycOnly = false }) {
   const { state } = useAppState();
   const data = useData();
-  const target = state.hover || state.pinned;
-  const pinnedNote = !state.hover && state.pinned
+  const p = state.pinned;
+  const pin = p && kinds.includes(p.kind) && !(nycOnly && p.kind === "tract" && !data.nycTractById.has(p.id)) ? p : null;
+  const target = state.hover || pin;
+  const pinnedNote = !state.hover && pin
     ? <p className="card-pinned">Pinned. Click the place again to unpin.</p>
     : null;
   if (!target) {
-    return <div className="card muted">Hover a place to see its values. Click a county to pin it.</div>;
+    const what = kinds.length > 1 ? "place" : kinds[0];
+    return <div className="card muted">Hover a {what} to see its values. Click a {kinds.length > 1 ? "county or tract" : kinds[0]} to pin it; click it again to unpin.</div>;
   }
 
   if (target.kind === "county") {

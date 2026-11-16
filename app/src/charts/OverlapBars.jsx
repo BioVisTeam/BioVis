@@ -2,6 +2,7 @@
 // with a dot matrix underneath showing which criteria each bar uses.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
+import { BAR, MISSING } from "../lib/constants.js";
 
 const W = 560, H = 330, M = { t: 24, r: 12, b: 84, l: 150 };
 const ROWS = [
@@ -26,7 +27,7 @@ export default function OverlapBars({ overlap, ariaLabel }) {
     items.forEach((d, i) => {
       const cx = M.l + cw * i + cw / 2;
       svg.append("rect").attr("x", cx - cw * 0.3).attr("y", y(d.count)).attr("width", cw * 0.6)
-        .attr("height", barBottom - y(d.count)).attr("fill", "#1c5cab");
+        .attr("height", barBottom - y(d.count)).attr("fill", BAR);
       svg.append("text").attr("x", cx).attr("y", y(d.count) - 4).attr("text-anchor", "middle")
         .attr("font-size", 11).text(d.count.toLocaleString("en-US"));
       const members = [...d.key];
@@ -34,11 +35,11 @@ export default function OverlapBars({ overlap, ariaLabel }) {
       const rowY = (k) => yBase + ROWS.findIndex((r) => r.key === k) * 18;
       if (members.length > 1) {
         svg.append("line").attr("x1", cx).attr("x2", cx)
-          .attr("y1", rowY(members[0])).attr("y2", rowY(members[members.length - 1])).attr("stroke", "#1c5cab").attr("stroke-width", 2);
+          .attr("y1", rowY(members[0])).attr("y2", rowY(members[members.length - 1])).attr("stroke", BAR).attr("stroke-width", 2);
       }
       ROWS.forEach((r) => {
         svg.append("circle").attr("cx", cx).attr("cy", rowY(r.key)).attr("r", 5)
-          .attr("fill", members.includes(r.key) ? "#1c5cab" : "#d9d8d2");
+          .attr("fill", members.includes(r.key) ? BAR : MISSING);
       });
     });
     ROWS.forEach((r) => {

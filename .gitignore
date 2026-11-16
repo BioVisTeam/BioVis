@@ -8,3 +8,7 @@ node_modules/
 app/dist/
 data/raw_local/
 .taste-skill/
+
+# Generated tract outlines (rebuilt by scripts/build_tract_geo.py in CI) and raw census zips
+app/public/data/tracts/
+data/raw/boundaries/tracts/

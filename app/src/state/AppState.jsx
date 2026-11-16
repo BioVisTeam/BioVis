@@ -6,7 +6,7 @@ const INITIAL = {
   tab: "overview",
   cond: "DIABETES",        // shared condition for Q1, Q2, Q3, Q5, Q6
   measure: "DIABETES",     // Overview "colour by" measure
-  view: "county",          // Overview: county | tract
+  view: "auto",            // Overview tract level: auto (tracts on zoom) | county (never) | tract (always)
   filter: null,            // Overview filter by overall SVI: { lo, hi } or null
   stateFilter: "All",      // Overview: dims counties outside one state
   showMissing: true,

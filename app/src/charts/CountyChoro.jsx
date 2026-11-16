@@ -2,13 +2,16 @@
 // styleFor(fips) returns { fill, opacity }. The hovered and pinned county get an outline.
 import { useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
+import { SEAM } from "../lib/constants.js";
+import { addOutlines } from "../lib/outline.js";
 import { ensureDefs } from "../lib/patterns.js";
 import { useAppState } from "../state/AppState.jsx";
 
 export default function CountyChoro({ geo, styleFor, width = 600, height = 380, ariaLabel, onClick, linked = true }) {
   const ref = useRef(null);
-  const pathsRef = useRef(null);
+  const pathsRef = useRef(null), outlineRef = useRef(null), elsRef = useRef(new Map());
   const { state, set, togglePin } = useAppState();
+  const stRef = useRef(state); stRef.current = state;
   const projection = useMemo(() => d3.geoAlbersUsa().fitSize([width, height], geo), [geo, width, height]);
 
   useEffect(() => {
@@ -20,10 +23,14 @@ export default function CountyChoro({ geo, styleFor, width = 600, height = 380, 
     pathsRef.current = svg.append("g").selectAll("path").data(geo.features).join("path")
       .attr("d", path)
       .attr("class", "county")
-      .attr("stroke", "#ffffff").attr("stroke-width", 0.3)
+      .attr("stroke", SEAM).attr("stroke-width", 0.3)
       .on("mouseenter", (e, f) => linked && set({ hover: { id: f.properties.GEOID, kind: "county" } }))
       .on("mouseleave", () => linked && set({ hover: null }))
       .on("click", (e, f) => (onClick ? onClick(f.properties.GEOID) : linked && togglePin(f.properties.GEOID, "county")));
+    elsRef.current = new Map(pathsRef.current.nodes().map((n) => [n.__data__.properties.GEOID, n]));
+    outlineRef.current = addOutlines(svg.append("g"));
+    const { hover, pinned } = stRef.current; // a redraw keeps the current outlines
+    outlineRef.current(elsRef.current.get(hover?.kind === "county" ? hover.id : null), elsRef.current.get(pinned?.kind === "county" ? pinned.id : null));
   }, [geo, projection, width, height, linked, onClick, set, togglePin]);
 
   useEffect(() => {
@@ -38,9 +45,7 @@ export default function CountyChoro({ geo, styleFor, width = 600, height = 380, 
     if (!pathsRef.current) return;
     const hovered = state.hover?.kind === "county" ? state.hover.id : null;
     const pinned = state.pinned?.kind === "county" ? state.pinned.id : null;
-    pathsRef.current
-      .attr("stroke", (f) => (f.properties.GEOID === hovered ? "#111" : f.properties.GEOID === pinned ? "#111" : "#ffffff"))
-      .attr("stroke-width", (f) => (f.properties.GEOID === hovered ? 1.8 : f.properties.GEOID === pinned ? 1.4 : 0.3));
+    outlineRef.current?.(elsRef.current.get(hovered), elsRef.current.get(pinned));
   }, [state.hover, state.pinned, geo]);
 
   return <svg ref={ref} className="chart map" role="img" aria-label={ariaLabel} />;

@@ -69,7 +69,7 @@ export default function Q3() {
         </div>
         <aside className="side">
           <Histogram values={allValues} xLabel={`${COND_LABEL[cond]} (%)`} brushRange={brushRange} onBrush={onBrush} />
-          <HoverCard />
+          <HoverCard kinds={["county"]} />
         </aside>
       </div>
     </Question>

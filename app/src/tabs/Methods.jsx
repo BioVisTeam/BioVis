@@ -9,14 +9,14 @@ export default function Methods() {
         <li>CDC PLACES county (2025 release): <a href="https://data.cdc.gov/d/i46a-9kgh">data.cdc.gov/d/i46a-9kgh</a></li>
         <li>CDC PLACES census tract (2025 release): <a href="https://data.cdc.gov/d/yjkw-uj5s">data.cdc.gov/d/yjkw-uj5s</a></li>
         <li>CDC/ATSDR Social Vulnerability Index 2022 (ACS 2018-2022): <a href="https://www.atsdr.cdc.gov/place-health/php/svi/svi-data-documentation-download.html">atsdr.cdc.gov SVI data download</a></li>
-        <li>Census 2023 cartographic boundaries (county 20m, NYC tract 500k): <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html">census.gov cartographic boundary files</a></li>
+        <li>Census 2023 cartographic boundary files (counties 20m; census tracts 500k resolution, all states): <a href="https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html">census.gov cartographic boundary files</a></li>
       </ul>
       <p>The app's data files (<code>app/public/data/</code>) are built by <code>scripts/build_web_data.py</code> from the two large national files in <code>data/raw_local/</code>, which is not committed (too large for GitHub). The repo's M2 tables live in <code>data/processed/</code>.</p>
 
       <h3>Units</h3>
       <ul>
-        <li>National views are at county level. County prevalence is <strong>age-adjusted</strong>.</li>
-        <li>Tract views are NYC only. Tract prevalence is <strong>crude</strong>. Never compare a tract value with a county's age-adjusted value; Q2 compares tracts with the county's crude value.</li>
+        <li>National views are at county level. County prevalence is <strong>age-adjusted</strong>. Tract outlines appear when you zoom in on the Overview map (or with the Tract level control); they are crude, so read them as rough.</li>
+        <li>Tract prevalence is <strong>crude</strong>. Never compare a tract value with a county's age-adjusted value; Q2 compares tracts with the county's crude value.</li>
         <li>Q6 selects across US tracts; the map summarises them by county, and individual tracts are drawn for NYC (see Q6).</li>
       </ul>
 
@@ -57,7 +57,6 @@ export default function Methods() {
 
       <h3>Limitations and open items</h3>
       <ul>
-        <li>NYC only at tract level. National tract geometry is planned for Milestone 4.</li>
         <li>Modeled estimates, not measured counts. Confidence intervals are wide for small tracts.</li>
         <li>The M2 record is kept on the <code>milestone-2</code> branch and tag <code>m2-submission</code>, and the M2 PDF is in <code>docs/milestones/m2/</code>.</li>
       </ul>

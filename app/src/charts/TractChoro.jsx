@@ -2,6 +2,8 @@
 // styleFor(tractId) -> { fill, opacity }. focusIds zooms to a set of tracts (a borough).
 import { useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
+import { SEAM } from "../lib/constants.js";
+import { addOutlines } from "../lib/outline.js";
 import { ensureDefs } from "../lib/patterns.js";
 import { useAppState } from "../state/AppState.jsx";
 
@@ -9,8 +11,9 @@ export default function TractChoro({ geo, styleFor, focusIds = null, width = 520
   const ref = useRef(null);
   const gRef = useRef(null);
   const zoomRef = useRef(null);
-  const pathsRef = useRef(null);
+  const pathsRef = useRef(null), outlineRef = useRef(null), elsRef = useRef(new Map());
   const { state, set, togglePin } = useAppState();
+  const stRef = useRef(state); stRef.current = state;
   const projection = useMemo(() => d3.geoMercator().fitSize([width, height], geo), [geo, width, height]);
 
   useEffect(() => {
@@ -27,10 +30,14 @@ export default function TractChoro({ geo, styleFor, focusIds = null, width = 520
     g.selectAll("*").remove();
     const path = d3.geoPath(projection);
     pathsRef.current = g.append("g").selectAll("path").data(geo.features, (f) => f.properties.GEOID).join("path")
-      .attr("d", path).attr("stroke", "#fff").attr("stroke-width", 0.3).attr("vector-effect", "non-scaling-stroke")
+      .attr("d", path).attr("stroke", SEAM).attr("stroke-width", 0.3).attr("vector-effect", "non-scaling-stroke")
       .on("mouseenter", (e, f) => set({ hover: { id: f.properties.GEOID, kind: "tract" } }))
       .on("mouseleave", () => set({ hover: null }))
       .on("click", (e, f) => togglePin(f.properties.GEOID, "tract"));
+    elsRef.current = new Map(pathsRef.current.nodes().map((n) => [n.__data__.properties.GEOID, n]));
+    outlineRef.current = addOutlines(g.append("g"));
+    const { hover, pinned } = stRef.current; // a redraw keeps the current outlines
+    outlineRef.current(elsRef.current.get(hover?.kind === "tract" ? hover.id : null), elsRef.current.get(pinned?.kind === "tract" ? pinned.id : null));
   }, [geo, projection, set, togglePin]);
 
   useEffect(() => {
@@ -44,9 +51,7 @@ export default function TractChoro({ geo, styleFor, focusIds = null, width = 520
     if (!pathsRef.current) return;
     const hId = state.hover?.kind === "tract" ? state.hover.id : null;
     const pId = state.pinned?.kind === "tract" ? state.pinned.id : null;
-    pathsRef.current
-      .attr("stroke", (f) => (f.properties.GEOID === hId || f.properties.GEOID === pId ? "#111" : "#fff"))
-      .attr("stroke-width", (f) => (f.properties.GEOID === hId ? 1.6 : f.properties.GEOID === pId ? 1.2 : 0.3));
+    outlineRef.current?.(elsRef.current.get(hId), elsRef.current.get(pId));
   }, [state.hover, state.pinned, geo]);
 
   // Zoom to a borough, or back to all of NYC.

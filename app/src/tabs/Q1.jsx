@@ -80,7 +80,7 @@ export default function Q1() {
         </div>
         <aside className="side">
           <Histogram values={values} xLabel={`${COND_LABEL[cond]} (%)`} brushRange={brushRange} onBrush={onBrush} />
-          <HoverCard />
+          <HoverCard kinds={["county"]} />
         </aside>
       </div>
       <h2>All five conditions</h2>
