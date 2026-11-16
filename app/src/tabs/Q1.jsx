@@ -2,12 +2,12 @@
 // a brushable histogram. Hover outlines the same county on every map.
 import { useCallback, useMemo } from "react";
 import { CONDITIONS, COND_LABEL } from "../lib/constants.js";
-import { FILL_MISSING } from "../lib/patterns.js";
+import { FILL_MISSING } from "../../../d3-visualisations/shared/patterns.js";
 import { makeScale } from "../lib/scales.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData } from "../data/DataProvider.jsx";
-import CountyChoro from "../charts/CountyChoro.jsx";
-import Histogram from "../components/Histogram.jsx";
+import CountyChoro from "../../../d3-visualisations/q1/CountyChoro.jsx";
+import Histogram from "../../../d3-visualisations/shared/Histogram.jsx";
 import Legend from "../components/Legend.jsx";
 import HoverCard from "../components/HoverCard.jsx";
 import Question from "../components/Question.jsx";

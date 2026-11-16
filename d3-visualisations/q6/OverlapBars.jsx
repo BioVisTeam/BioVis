@@ -1,8 +1,11 @@
+// D3 for review. Used by: Q6. Encodes: UpSet-style overlap bars with a dot matrix.
+// D3: band and linear scales, data joins for bars and dots. React owns the container; D3 draws inside useEffect.
+// ---
 // Q6 overlap bars (UpSet style): one bar per non-empty combination of criteria,
 // with a dot matrix underneath showing which criteria each bar uses.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { BAR, MISSING } from "../lib/constants.js";
+import { BAR, MISSING } from "../../app/src/lib/constants.js";
 
 const W = 560, H = 330, M = { t: 24, r: 12, b: 84, l: 150 };
 const ROWS = [

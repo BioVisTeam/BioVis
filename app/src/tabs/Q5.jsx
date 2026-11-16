@@ -6,7 +6,7 @@ import { fmt1, fmtInt } from "../lib/format.js";
 import { q5Summary } from "../lib/q5.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData } from "../data/DataProvider.jsx";
-import TractScatter from "../charts/TractScatter.jsx";
+import TractScatter from "../../../d3-visualisations/q5/TractScatter.jsx";
 import HoverCard from "../components/HoverCard.jsx";
 import Question from "../components/Question.jsx";
 import CondPicker from "../components/CondPicker.jsx";

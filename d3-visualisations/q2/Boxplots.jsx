@@ -1,10 +1,13 @@
+// D3 for review. Used by: Q2. Encodes: per-borough box plots with jittered tract dots.
+// D3: linear scales, quantiles, data joins, d3-brush on the y axis. React owns the container; D3 draws inside useEffect.
+// ---
 // Q2 borough box plots. One panel per borough, all on the same y-scale for a condition.
 // Dots are tracts (jittered), box = middle 50%, whiskers = p10 to p90, red diamond = county value.
 // A y-range brush highlights those tracts on the map. Clicking a borough name selects it.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { BOROUGHS, MARK, MUTED, BAR_SOFT, INK, SEAM, BAR, HILITE, PIN_W } from "../lib/constants.js";
-import { useAppState } from "../state/AppState.jsx";
+import { BOROUGHS, MARK, MUTED, BAR_SOFT, INK, SEAM, BAR, HILITE, PIN_W } from "../../app/src/lib/constants.js";
+import { useAppState } from "../../app/src/state/AppState.jsx";
 
 const W = 560, H = 380, M = { t: 14, r: 12, b: 64, l: 44 };
 const inRange = (v, r) => r && v >= r[0] && v <= r[1];

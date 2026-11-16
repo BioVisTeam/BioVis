@@ -1,9 +1,12 @@
+// D3 for review. Used by: Q3, Q4 (shared). Encodes: scatter of two measures, highlighted subset.
+// D3: linear scales, data join, symbols. React owns the container; D3 draws inside useEffect.
+// ---
 // Generic scatter for Q3, Q4 and the county part of Q5. Points come in ready-made;
 // a highlighted subset stays solid and the rest fade. NYC marks are diamonds with labels.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { MARK, BAR, SEAM, INK, HILITE, PIN_W } from "../lib/constants.js";
-import { useAppState } from "../state/AppState.jsx";
+import { MARK, BAR, SEAM, INK, HILITE, PIN_W } from "../../app/src/lib/constants.js";
+import { useAppState } from "../../app/src/state/AppState.jsx";
 
 const W = 560, H = 360, M = { t: 14, r: 16, b: 44, l: 52 };
 

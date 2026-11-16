@@ -1,8 +1,11 @@
+// D3 for review. Used by: Q4. Encodes: theme by condition Spearman rho matrix.
+// D3: band scales, diverging colour scale fixed to -1..+1, data join of rects. React owns the container; D3 draws inside useEffect.
+// ---
 // Q4: themes (rows) by conditions (columns), Spearman rho in every cell.
 // Diverging scale fixed at -1 to +1 with a gray midpoint. Clicking a cell sets the scatter.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { DIVERGING, MISSING, HILITE, INK } from "../lib/constants.js";
+import { DIVERGING, MISSING, HILITE, INK } from "../../app/src/lib/constants.js";
 
 const W = 560, H = 270, M = { t: 76, r: 10, b: 10, l: 196 };
 const LINE = 14;

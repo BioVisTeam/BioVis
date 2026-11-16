@@ -3,15 +3,15 @@
 // individual NYC tracts (NYC scope). The wording is "places for closer review", never "priority of care".
 import { useMemo } from "react";
 import { COND_LABEL, CONDITIONS, BLUES, NYC_FIPS, SURFACE, NOT_SELECTED } from "../lib/constants.js";
-import { FILL_DOTS, FILL_MISSING } from "../lib/patterns.js";
+import { FILL_DOTS, FILL_MISSING } from "../../../d3-visualisations/shared/patterns.js";
 import { makeScale } from "../lib/scales.js";
 import { fmtInt } from "../lib/format.js";
 import { q6Compute } from "../lib/q6.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData, useNycGeo } from "../data/DataProvider.jsx";
-import CountyChoro from "../charts/CountyChoro.jsx";
-import TractChoro from "../charts/TractChoro.jsx";
-import OverlapBars from "../charts/OverlapBars.jsx";
+import CountyChoro from "../../../d3-visualisations/q1/CountyChoro.jsx";
+import TractChoro from "../../../d3-visualisations/q2/TractChoro.jsx";
+import OverlapBars from "../../../d3-visualisations/q6/OverlapBars.jsx";
 import Legend from "../components/Legend.jsx";
 import HoverCard from "../components/HoverCard.jsx";
 import Question from "../components/Question.jsx";

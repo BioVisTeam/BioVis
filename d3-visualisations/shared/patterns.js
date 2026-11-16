@@ -1,6 +1,9 @@
+// D3 for review. Used by: the maps and histogram (shared). Encodes: SVG hatch and dot patterns for missing data.
+// Helper called from the D3 drawing code.
+// ---
 // SVG patterns for "missing is never zero": hatched gray for no estimate (counties),
 // dots for no tract estimate, white hatch for tracts under 500 adults.
-import { MISSING, MISSING_LINE, SURFACE } from "./constants.js";
+import { MISSING, MISSING_LINE, SURFACE } from "../../app/src/lib/constants.js";
 
 export const FILL_MISSING = "url(#hatch-missing)";
 export const FILL_DOTS = "url(#dots-missing)";
