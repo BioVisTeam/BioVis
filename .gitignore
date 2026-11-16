@@ -4,3 +4,6 @@ __pycache__/
 .DS_Store
 deck/
 *.pptx
+node_modules/
+app/dist/
+data/raw_local/
