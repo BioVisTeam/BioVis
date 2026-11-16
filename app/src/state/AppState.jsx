@@ -15,7 +15,7 @@ const INITIAL = {
   hover: null,             // { id, kind: "county" | "tract" }
   pinned: null,            // { id, kind } pinned by a click
   borough: null,           // Q2 borough selected by click
-  scatterX: "RPL_THEME1",  // Q4 cell click sets the theme on the scatter x-axis
+  scatterX: "RPL_THEMES",
   q6: { cond: "DIABETES", X: 10, k: 2, scope: "US" }, // X is a percentage (1 to 25)
 };
 

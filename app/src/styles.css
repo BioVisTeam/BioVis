@@ -313,3 +313,17 @@ select { max-width: 100%; min-width: 0; }
 .filter-bar .seg-label { display: inline-flex; align-items: center; gap: var(--s-2); }
 .map-stage { position: relative; }
 .map-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; border-radius: var(--r-md); }
+
+.observable-scroll { max-width: 100%; min-width: 0; overflow-x: auto; background: white; border-radius: 8px; }
+.chart.observable-chart { min-width: 850px; max-width: none; background: white; color: #111827; font-family: sans-serif; }
+.chart.observable-chart text:not([fill]), .chart.observable-chart .tick text { fill: #111827; }
+.chart.observable-chart .domain, .chart.observable-chart .tick line { stroke: currentColor; }
+.q3-main, .q4-scatter { grid-template-columns: minmax(0, 1fr); }
+.q4-scatter { margin-top: var(--s-5); }
+.q3-main > .side, .q4-scatter > .side { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+@media (max-width: 640px) {
+  .q3-main > .side, .q4-scatter > .side { grid-template-columns: minmax(0, 1fr); }
+}
+
+.chart-scroll-hint { display: none; font-size: 13px; color: var(--p-muted); }
+@media (max-width: 900px) { .chart-scroll-hint { display: block; } }
