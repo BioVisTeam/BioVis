@@ -5,6 +5,9 @@ All questions ask about association, not cause. National views use counties; tra
 
 ## Milestone 3 — interactive dashboard (React + D3)
 
+**Live site:** [biovisteam.github.io/BioVis](https://biovisteam.github.io/BioVis/)
+
+
 The dashboard is in [`app/`](app/). Every chart is D3 v7; React handles layout, tabs and shared state. Tabs: Overview (county map explorer), Q1 to Q6, Data & Methods, and AI use.
 
 **Requirements:** Node.js 18 or newer (20 LTS recommended), https://nodejs.org
