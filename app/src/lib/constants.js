@@ -50,14 +50,11 @@ export const BOROUGHS = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Isl
 // left out of statistics and the Q6 selection (plan.md section 0).
 export const SMALL_TRACT_ADULTS = 500;
 
-export const TABS = [
-  { id: "overview", label: "Overview" },
-  { id: "q1", label: "Q1 Counties" },
-  { id: "q2", label: "Q2 NYC tracts" },
-  { id: "q3", label: "Q3 SVI" },
-  { id: "q4", label: "Q4 Themes" },
-  { id: "q5", label: "Q5 Affected adults" },
-  { id: "q6", label: "Q6 Closer review" },
-  { id: "methods", label: "Data & Methods" },
-  { id: "ai", label: "AI use" },
+export const QUESTION_TABS = [
+  { id: "q1", short: "Q1", label: "Counties" },
+  { id: "q2", short: "Q2", label: "NYC tracts" },
+  { id: "q3", short: "Q3", label: "Prevalence and SVI" },
+  { id: "q4", short: "Q4", label: "SVI themes" },
+  { id: "q5", short: "Q5", label: "Rate and affected adults" },
+  { id: "q6", short: "Q6", label: "Places for closer review" },
 ];

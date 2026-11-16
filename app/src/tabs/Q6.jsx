@@ -79,8 +79,6 @@ export default function Q6() {
         "Missing SVI is shown as its own category. Tracts without a PLACES estimate (PA, KY) are excluded, not counted as not selected.",
         "The criteria partly restate PLACES and SVI inputs (the overlap in Data & Methods). Places for closer review are an exploratory screen, not a judgement about care or priority.",
       ]}
-      ai="Claude (Anthropic, via Claude Code) wrote the Q6 calculation, the counts and the overlap code. The worked default was checked in tests/q6.test.js against the numbers in plan.md (5,318 US, 300 NYC at k = 2)."
-      code="app/src/lib/q6.js, app/src/tabs/Q6.jsx, app/src/charts/OverlapBars.jsx"
     >
       <div className="q6-controls">
         <label>Condition
@@ -118,11 +116,11 @@ export default function Q6() {
 
       <div className="q6-main">
         <div>
-          <h3>Overlap of the three criteria (eligible tracts)</h3>
+          <h2>Overlap of the three criteria (eligible tracts)</h2>
           <OverlapBars overlap={r.overlap} ariaLabel="Overlap of prevalence, affected adults and SVI criteria" />
         </div>
         <div>
-          <h3>{scope === "US" ? "Selected tracts per county" : "NYC tracts by selection status"}</h3>
+          <h2>{scope === "US" ? "Selected tracts per county" : "NYC tracts by selection status"}</h2>
           {scope === "US" ? (
             <CountyChoro geo={data.countyGeo} styleFor={countyStyle} width={620} height={380} linked
               ariaLabel="Selected tracts per county" />
@@ -130,7 +128,7 @@ export default function Q6() {
             <TractChoro geo={nycGeo} styleFor={tractStyle} width={480} height={420} ariaLabel="NYC tracts by selection status" />
           ) : <div className="notice">Loading NYC tract outlines…</div>}
           {scope === "US" ? (
-            <Legend scale={countScale} title="Selected tracts per county (non-zero classes)" unit=""
+            <Legend scale={countScale} title="Selected tracts per county (non-zero classes)" unit="" fmt={(v) => fmtInt(Math.round(v))}
               note="Counties with no selected tract are light; hatched gray: no county record." />
           ) : (
             <div className="legend">
@@ -141,9 +139,9 @@ export default function Q6() {
               <div className="legend-row"><span className="swatch dotted" /> not eligible (no estimate or under 500 adults)</div>
             </div>
           )}
+          <HoverCard />
         </div>
       </div>
-      <HoverCard />
     </Question>
   );
 }

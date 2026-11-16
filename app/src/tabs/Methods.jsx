@@ -2,7 +2,7 @@
 export default function Methods() {
   return (
     <article className="prose">
-      <h2>Data and methods</h2>
+      <h1>Data and methods</h1>
 
       <h3>Sources (with access)</h3>
       <ul>

@@ -63,8 +63,6 @@ export default function Q1() {
         "2,956 counties have estimates. 187 (Kentucky 120, Pennsylvania 67) do not; Loving County, TX is not in PLACES.",
         "PLACES 2025 and SVI 2022 (ACS 2018-2022) cover different periods.",
       ]}
-      ai="Claude (Anthropic, via Claude Code) wrote the React and D3 code and the Q1 text. The numbers are from the repo's q1_national_summary.csv; they still need a manual check by the team."
-      code="app/src/tabs/Q1.jsx, app/src/charts/CountyChoro.jsx, app/src/components/Histogram.jsx"
     >
       <div className="cond-picker">
         {CONDITIONS.map((c) => (
@@ -75,7 +73,7 @@ export default function Q1() {
       </div>
       <div className="q1-main">
         <div>
-          <h3>{COND_LABEL[cond]}, age-adjusted, by county</h3>
+          <h2>{COND_LABEL[cond]}, age-adjusted, by county</h2>
           <CountyChoro geo={data.countyGeo} styleFor={bigStyle} width={720} height={440}
             ariaLabel={`Choropleth of ${COND_LABEL[cond]} by county`} />
           <Legend scale={scales[cond]} title={`${COND_LABEL[cond]} class breaks`} />
@@ -85,7 +83,7 @@ export default function Q1() {
           <HoverCard />
         </aside>
       </div>
-      <h3>All five conditions</h3>
+      <h2>All five conditions</h2>
       <p className="small-note">Each map uses its own quintiles. The same county is outlined on every map when you hover.</p>
       <div className="small-multiples">
         {CONDITIONS.map((c) => (

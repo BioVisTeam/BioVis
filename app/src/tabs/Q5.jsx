@@ -42,8 +42,6 @@ export default function Q5() {
         "Crude tract values from the PLACES 2025 tract model; the spread is modeled, not measured.",
         "Association, not cause.",
       ]}
-      ai="Claude (Anthropic, via Claude Code) wrote the scatter, the quadrant counts and the wording. The counts are computed in the app from the repo's nyc_tracts.csv; check them against the tables before submission."
-      code="app/src/tabs/Q5.jsx, app/src/charts/TractScatter.jsx, app/src/lib/q5.js"
     >
       <CondPicker />
       <div className="q5-main">

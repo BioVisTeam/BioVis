@@ -8,6 +8,9 @@ export default function HoverCard() {
   const { state } = useAppState();
   const data = useData();
   const target = state.hover || state.pinned;
+  const pinnedNote = !state.hover && state.pinned
+    ? <p className="card-pinned">Pinned. Click the place again to unpin.</p>
+    : null;
   if (!target) {
     return <div className="card muted">Hover a place to see its values. Click a county to pin it.</div>;
   }
@@ -17,6 +20,7 @@ export default function HoverCard() {
     if (!c) return null;
     return (
       <div className="card">
+        {pinnedNote}
         <div className="card-title">{c.county} County, {c.state}{c.borough ? ` (NYC: ${c.borough})` : ""}</div>
         {CONDITIONS.map((m) => (
           <div className="card-row" key={m.key}>
@@ -43,6 +47,7 @@ export default function HoverCard() {
   const county = t[`${state.cond}_county`];
   return (
     <div className="card">
+        {pinnedNote}
       <div className="card-title">Tract {t.id}{t.borough ? `, ${t.borough}` : ""}</div>
       <div className="card-row">
         <span>{COND_LABEL[state.cond]} (crude)</span>

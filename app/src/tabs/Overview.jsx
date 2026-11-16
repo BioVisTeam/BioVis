@@ -37,7 +37,7 @@ export default function Overview() {
   return (
     <div className="overview">
       <section className="intro">
-        <h2>Overview: the county map</h2>
+        <h1>Chronic disease and social vulnerability</h1>
         <p>
           Three questions are answered here: how prevalence differs across US counties (age-adjusted, PLACES 2025),
           how overall social vulnerability (SVI 2022) and its four themes differ across counties, and how NYC tracts

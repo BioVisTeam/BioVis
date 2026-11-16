@@ -7,3 +7,4 @@ deck/
 node_modules/
 app/dist/
 data/raw_local/
+.taste-skill/

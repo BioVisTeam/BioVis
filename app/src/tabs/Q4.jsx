@@ -61,11 +61,9 @@ export default function Q4() {
         "Association, not cause. Theme 1 includes below-150% poverty and no high-school diploma, both repeated in PLACES inputs; theme 3 includes minority status and race/ethnicity groups. These overlaps are discussed in Q3 and Data & Methods.",
         "The matrix is fixed at national values; highlighting in the scatter does not change it.",
       ]}
-      ai="Claude (Anthropic, via Claude Code) wrote the heatmap and the scatter links. The 20 values come from the repo's q4_correlations.csv (the Q3/Q4 team tables, PR #2). Tests check the overall SVI and Theme 1 values against those tables. The authors still need to review the text."
-      code="app/src/tabs/Q4.jsx, app/src/charts/CorrHeatmap.jsx"
     >
       <CorrHeatmap rows={THEMES} cols={CONDITIONS} valueOf={valueOf} selected={selected} onPick={onPick} />
-      <h3>{themeName} vs {COND_LABEL[cond]}</h3>
+      <h2>{themeName} vs {COND_LABEL[cond]}</h2>
       <div className="q4-scatter">
         <Scatter points={points} xDomain={[0, 1]} yDomain={[0, yMax]} xLabel={`${themeName} (percentile, 0 to 1)`}
           yLabel={`${COND_LABEL[cond]}, age-adjusted (%)`} ariaLabel={`Scatter of ${COND_LABEL[cond]} against ${themeName}`} />

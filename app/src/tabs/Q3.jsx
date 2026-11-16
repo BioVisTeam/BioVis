@@ -58,13 +58,11 @@ export default function Q3() {
         "Modeled prevalence estimates; counties without an estimate (KY, PA, Loving TX) are not drawn.",
         "PLACES 2025 vs SVI 2022 data periods.",
       ]}
-      ai="Claude (Anthropic, via Claude Code) wrote the scatter and the rho calculation. The rho values were checked against q3_national_summary.csv; the app reproduces them in tests/data.test.js."
-      code="app/src/tabs/Q3.jsx, app/src/components/Scatter.jsx, app/src/lib/stats.js"
     >
       <CondPicker />
       <div className="q3-main">
         <div>
-          <h3>{COND_LABEL[cond]} vs overall SVI, counties</h3>
+          <h2>{COND_LABEL[cond]} vs overall SVI, counties</h2>
           <Scatter points={points} xDomain={[0, 1]} yDomain={[0, yMax]} xLabel="Overall SVI (0 to 1)"
             yLabel={`${COND_LABEL[cond]}, age-adjusted (%)`} ariaLabel={`Scatter of ${COND_LABEL[cond]} against overall SVI`} />
           <p className="stat">Spearman rho = <strong>{fmt2(rho)}</strong>, n = {pairs.length.toLocaleString("en-US")} counties (national, fixed)</p>

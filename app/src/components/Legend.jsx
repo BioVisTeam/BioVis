@@ -2,7 +2,7 @@
 import { BLUES } from "../lib/constants.js";
 import { fmt1 } from "../lib/format.js";
 
-export default function Legend({ scale, title, unit = "%", note, missingLabel = "No estimate" }) {
+export default function Legend({ scale, title, unit = "%", note, missingLabel = "No estimate", fmt = fmt1 }) {
   if (!scale) return null;
   const ranges = scale.ranges();
   return (
@@ -11,7 +11,7 @@ export default function Legend({ scale, title, unit = "%", note, missingLabel = 
       {ranges.map(([lo, hi], i) => (
         <div className="legend-row" key={i}>
           <span className="swatch" style={{ background: BLUES[i] }} />
-          {fmt1(lo)} to {fmt1(hi)}{unit}
+          {fmt(lo)} to {fmt(hi)}{unit}
         </div>
       ))}
       <div className="legend-row">

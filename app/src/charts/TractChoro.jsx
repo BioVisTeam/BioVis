@@ -10,7 +10,7 @@ export default function TractChoro({ geo, styleFor, focusIds = null, width = 520
   const gRef = useRef(null);
   const zoomRef = useRef(null);
   const pathsRef = useRef(null);
-  const { state, set } = useAppState();
+  const { state, set, togglePin } = useAppState();
   const projection = useMemo(() => d3.geoMercator().fitSize([width, height], geo), [geo, width, height]);
 
   useEffect(() => {
@@ -29,8 +29,9 @@ export default function TractChoro({ geo, styleFor, focusIds = null, width = 520
     pathsRef.current = g.append("g").selectAll("path").data(geo.features, (f) => f.properties.GEOID).join("path")
       .attr("d", path).attr("stroke", "#fff").attr("stroke-width", 0.3).attr("vector-effect", "non-scaling-stroke")
       .on("mouseenter", (e, f) => set({ hover: { id: f.properties.GEOID, kind: "tract" } }))
-      .on("mouseleave", () => set({ hover: null }));
-  }, [geo, projection, set]);
+      .on("mouseleave", () => set({ hover: null }))
+      .on("click", (e, f) => togglePin(f.properties.GEOID, "tract"));
+  }, [geo, projection, set, togglePin]);
 
   useEffect(() => {
     if (!pathsRef.current) return;

@@ -27,7 +27,7 @@ The data the app needs is already in `app/public/data/`. To rebuild it, see [`sc
 
 **Scope:** five conditions everywhere (diabetes, coronary heart disease, high blood pressure, obesity, COPD). County values are age-adjusted; NYC tract values are crude. Q6 selects across US tracts, and its map summarises them by county; NYC tracts are drawn individually. National tract geometry is planned for Milestone 4.
 
-**Where to look:** [Data & Methods](app/src/tabs/Methods.jsx) (sources, rules, PLACES–SVI overlap) and the [AI-use statement](docs/AI_USE.md) (also in the app's AI use tab).
+**Where to look:** [Data & Methods](app/src/tabs/Methods.jsx) (sources, rules, PLACES–SVI overlap).
 
 **Milestone record:** Milestone 2 is kept unchanged on the `milestone-2` branch and the tag `m2-submission`. Its PDF and feedback are in [`docs/milestones/m2/`](docs/milestones/m2/).
 

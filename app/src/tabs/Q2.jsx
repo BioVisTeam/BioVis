@@ -74,8 +74,6 @@ export default function Q2() {
         "Tract confidence intervals are wide for small tracts; 21 NYC tracts with under 500 adults are excluded.",
         "Only NYC is shown at tract level in this draft.",
       ]}
-      ai="Claude (Anthropic, via Claude Code) wrote the D3 code for the tract map, box plots and brush. The live borough table is computed in the app from the repo's nyc_tracts file."
-      code="app/src/tabs/Q2.jsx, app/src/charts/TractChoro.jsx, app/src/charts/Boxplots.jsx"
     >
       <div className="cond-picker">
         {CONDITIONS.map((c) => (
@@ -87,7 +85,7 @@ export default function Q2() {
       </div>
       <div className="q2-main">
         <div>
-          <h3>{COND_LABEL[cond]}, crude, NYC tracts</h3>
+          <h2>{COND_LABEL[cond]}, crude, NYC tracts</h2>
           {nycGeo ? (
             <TractChoro geo={nycGeo} styleFor={styleFor} focusIds={focusIds} ariaLabel={`NYC tracts, ${COND_LABEL[cond]}`} />
           ) : <div className="notice">Loading NYC tract outlines…</div>}
@@ -95,13 +93,13 @@ export default function Q2() {
             note="White hatch: under 500 adults. Dotted: no estimate." />
         </div>
         <div>
-          <h3>Tracts by borough, same y-scale</h3>
+          <h2>Tracts by borough, same y-scale</h2>
           <Boxplots tracts={boxTracts} yMax={yMax} brushRange={brushRange} onBrush={onBrush}
             borough={borough} onBorough={onBorough} ariaLabel={`Box plots of ${COND_LABEL[cond]} by NYC borough`} />
           <HoverCard />
         </div>
       </div>
-      <h3>Borough summary, {COND_LABEL[cond]} (live)</h3>
+      <h2>Borough summary, {COND_LABEL[cond]} (live)</h2>
       <table className="units">
         <thead>
           <tr><th>Borough</th><th>Tracts</th><th>County (crude)</th><th>Tract min</th><th>Tract max</th><th>More than 3 points from county</th></tr>

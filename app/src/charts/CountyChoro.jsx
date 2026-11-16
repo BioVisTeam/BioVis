@@ -8,7 +8,7 @@ import { useAppState } from "../state/AppState.jsx";
 export default function CountyChoro({ geo, styleFor, width = 600, height = 380, ariaLabel, onClick, linked = true }) {
   const ref = useRef(null);
   const pathsRef = useRef(null);
-  const { state, set } = useAppState();
+  const { state, set, togglePin } = useAppState();
   const projection = useMemo(() => d3.geoAlbersUsa().fitSize([width, height], geo), [geo, width, height]);
 
   useEffect(() => {
@@ -23,8 +23,8 @@ export default function CountyChoro({ geo, styleFor, width = 600, height = 380, 
       .attr("stroke", "#ffffff").attr("stroke-width", 0.3)
       .on("mouseenter", (e, f) => linked && set({ hover: { id: f.properties.GEOID, kind: "county" } }))
       .on("mouseleave", () => linked && set({ hover: null }))
-      .on("click", (e, f) => onClick && onClick(f.properties.GEOID));
-  }, [geo, projection, width, height, linked, onClick, set]);
+      .on("click", (e, f) => (onClick ? onClick(f.properties.GEOID) : linked && togglePin(f.properties.GEOID, "county")));
+  }, [geo, projection, width, height, linked, onClick, set, togglePin]);
 
   useEffect(() => {
     if (!pathsRef.current) return;

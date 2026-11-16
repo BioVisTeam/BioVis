@@ -24,8 +24,10 @@ const Ctx = createContext(null);
 export function StateProvider({ children }) {
   const [state, setState] = useState(INITIAL);
   const set = useCallback((patch) => setState((s) => ({ ...s, ...patch })), []);
+  // Click a place to pin it; click the same place again to unpin.
+  const togglePin = useCallback((id, kind) => setState((s) => ({ ...s, pinned: s.pinned?.id === id ? null : { id, kind } })), []);
   const setQ6 = useCallback((patch) => setState((s) => ({ ...s, q6: { ...s.q6, ...patch } })), []);
-  const value = useMemo(() => ({ state, set, setQ6 }), [state, set, setQ6]);
+  const value = useMemo(() => ({ state, set, setQ6, togglePin }), [state, set, setQ6, togglePin]);
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;
 }
 
