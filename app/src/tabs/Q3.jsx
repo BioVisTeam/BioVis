@@ -1,9 +1,7 @@
-// Q3: prevalence vs overall SVI across counties, with NYC marked. Spearman rho is computed
-// on the national sample; highlighting or brushing does not change it.
 import { useCallback, useMemo } from "react";
 import { COND_LABEL, NYC_FIPS } from "../lib/constants.js";
 import { spearman } from "../lib/stats.js";
-import { fmt2 } from "../lib/format.js";
+import { SVI_NAMES, Q3Q4_CONDITIONS } from "../lib/q3q4.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData } from "../data/DataProvider.jsx";
 import Scatter from "../../../d3-visualisations/shared/Scatter.jsx";
@@ -15,41 +13,43 @@ import CondPicker from "../components/CondPicker.jsx";
 export default function Q3() {
   const data = useData();
   const { state, set } = useAppState();
-  const { cond, brush } = state;
+  const { cond, brush, scatterX } = state;
+  const sviName = SVI_NAMES[scatterX];
+  const disease = Q3Q4_CONDITIONS.find(c => c.key === cond).label;
   const brushRange = brush && brush.key === cond ? brush.range : null;
 
   const pairs = useMemo(
-    () => data.counties.filter((c) => c[cond] != null && c.RPL_THEMES != null),
-    [data.counties, cond],
+    () => data.counties.filter((c) => Number.isFinite(c[cond]) && Number.isFinite(c[scatterX])),
+    [data.counties, cond, scatterX],
   );
   const rho = useMemo(
-    () => spearman(pairs.map((c) => c.RPL_THEMES), pairs.map((c) => c[cond])),
-    [pairs, cond],
+    () => spearman(pairs.map((c) => c[scatterX]), pairs.map((c) => c[cond])),
+    [pairs, cond, scatterX],
   );
   const points = useMemo(
     () =>
       pairs.map((c) => ({
         id: c.fips,
-        x: c.RPL_THEMES,
+        x: c[scatterX],
         y: c[cond],
         nyc: NYC_FIPS.includes(c.fips),
-        label: c.borough || "",
+        county: c.county,
+        state: c.state,
         highlight: !!brushRange && c[cond] >= brushRange[0] && c[cond] <= brushRange[1],
       })),
-    [pairs, cond, brushRange],
+    [pairs, cond, scatterX, brushRange],
   );
-  const yMax = useMemo(() => Math.max(...pairs.map((c) => c[cond])), [pairs, cond]);
   const allValues = useMemo(() => data.counties.map((c) => c[cond]), [data.counties, cond]);
   const onBrush = useCallback((range) => set({ brush: range ? { key: cond, range } : null }), [cond, set]);
 
   return (
     <Question
-      title="Q3. Prevalence and overall SVI across counties"
-      question="How is prevalence associated with overall social vulnerability (SVI), and where does NYC sit?"
-      answer={`Counties with higher overall SVI tend to have higher ${COND_LABEL[cond].toLowerCase()} prevalence. The Spearman rho for ${COND_LABEL[cond].toLowerCase()} is ${fmt2(rho)} across ${pairs.length.toLocaleString("en-US")} counties.`}
-      read="Each dot is a county: overall SVI on the x-axis (0 to 1, higher is more vulnerable) and the age-adjusted prevalence on the y-axis. NYC's five counties are red diamonds with labels. The histogram on the right uses the same brush as Q1: brushing a range highlights the counties in that range here, and fades the rest. The rho printed above is computed on the full national sample and does not change when you brush."
+      title="Q3. Prevalence and SVI across counties"
+      question="How is prevalence associated with social vulnerability (SVI), and where does NYC sit?"
+      answer={`${sviName} and ${COND_LABEL[cond].toLowerCase()} prevalence have a national Spearman rho of ${rho.toFixed(4)} across ${pairs.length.toLocaleString("en-US")} counties.`}
+      read="Each dot is a county: the selected SVI percentile on the x-axis (0 to 1, higher is more vulnerable) and the age-adjusted prevalence on the y-axis. NYC's five counties are red diamonds with labels. The histogram below uses the same brush as Q1: brushing a range outlines the counties in that range here. Gray dots retain their original opacity. The rho printed above is computed on the full national sample and does not change when you brush."
       shows={[
-        "Spearman rho, overall SVI vs prevalence (national): diabetes 0.75, CHD 0.62, high blood pressure 0.60, COPD 0.50, obesity 0.34.",
+        "Spearman rho, overall SVI vs prevalence (national): diabetes 0.7514, CHD 0.6188, high blood pressure 0.6000, COPD 0.4964, obesity 0.3408.",
         "Diabetes has the strongest association; obesity the weakest.",
         "NYC's five counties are drawn as labelled red diamonds, so you can see where they fall against the national pattern.",
       ]}
@@ -60,12 +60,18 @@ export default function Q3() {
       ]}
     >
       <CondPicker />
+      <div className="filter-bar">
+        <label>SVI measure
+          <select value={scatterX} onChange={event => set({ scatterX: event.target.value })}>
+            {Object.entries(SVI_NAMES).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
+          </select>
+        </label>
+      </div>
       <div className="q3-main">
         <div>
-          <h2>{COND_LABEL[cond]} vs overall SVI, counties</h2>
-          <Scatter points={points} xDomain={[0, 1]} yDomain={[0, yMax]} xLabel="Overall SVI (0 to 1)"
-            yLabel={`${COND_LABEL[cond]}, age-adjusted (%)`} ariaLabel={`Scatter of ${COND_LABEL[cond]} against overall SVI`} />
-          <p className="stat">Spearman rho = <strong>{fmt2(rho)}</strong>, n = {pairs.length.toLocaleString("en-US")} counties (national, fixed)</p>
+          <Scatter points={points} sviName={sviName} disease={disease} rho={rho}
+            ariaLabel={`Scatter of ${COND_LABEL[cond]} against ${sviName}`} />
+          <p className="stat">Spearman rho = <strong>{rho.toFixed(4)}</strong>, n = {pairs.length.toLocaleString("en-US")} counties (national, fixed)</p>
         </div>
         <aside className="side">
           <Histogram values={allValues} xLabel={`${COND_LABEL[cond]} (%)`} brushRange={brushRange} onBrush={onBrush} />
