@@ -1,10 +1,13 @@
+// D3 for review. Used by: Overview, Q1, Q3 (shared). Encodes: distribution of a measure with median and p10-p90 band.
+// D3: linear scale, d3 bin, d3-brush. React owns the container; D3 draws inside useEffect.
+// ---
 // Brushable histogram: 35 bins, median line, p10-p90 band, its own x-scale.
 // A brush the user drags calls onBrush. A selection moved by React state does not
 // (d3 gives no sourceEvent for programmatic moves), so the two never loop.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { BAR, BAR_SOFT, INK, MUTED } from "../lib/constants.js";
-import { ensureDefs } from "../lib/patterns.js";
+import { BAR, BAR_SOFT, INK, MUTED } from "../../app/src/lib/constants.js";
+import { ensureDefs } from "../shared/patterns.js";
 
 const W = 320, H = 150, M = { t: 10, r: 10, b: 28, l: 44 };
 

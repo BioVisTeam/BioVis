@@ -2,13 +2,13 @@
 import { useCallback, useMemo } from "react";
 import * as d3 from "d3";
 import { BOROUGHS, CONDITIONS, COND_LABEL, SURFACE } from "../lib/constants.js";
-import { FILL_DOTS, FILL_SMALL } from "../lib/patterns.js";
+import { FILL_DOTS, FILL_SMALL } from "../../../d3-visualisations/shared/patterns.js";
 import { makeScale } from "../lib/scales.js";
 import { fmt1, pct } from "../lib/format.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData, useNycGeo } from "../data/DataProvider.jsx";
-import TractChoro from "../charts/TractChoro.jsx";
-import Boxplots from "../charts/Boxplots.jsx";
+import TractChoro from "../../../d3-visualisations/q2/TractChoro.jsx";
+import Boxplots from "../../../d3-visualisations/q2/Boxplots.jsx";
 import Legend from "../components/Legend.jsx";
 import HoverCard from "../components/HoverCard.jsx";
 import Question from "../components/Question.jsx";

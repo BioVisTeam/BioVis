@@ -1,7 +1,10 @@
+// D3 for review. Used by: the maps (shared). Encodes: hover and pin outline overlays.
+// Helper called from the D3 drawing code.
+// ---
 // Hover and pin outlines for SVG maps: two overlay paths above the shapes. They take no pointer
 // events and never reorder the shapes, so the shape under the mouse is not touched (moving it in the
 // DOM makes the browser drop its hover). Returns show(hoverElement, pinnedElement).
-import { HILITE, HOVER_W, PIN_W } from "./constants.js";
+import { HILITE, HOVER_W, PIN_W } from "../../app/src/lib/constants.js";
 
 export function addOutlines(parent) {
   const mk = (w) => parent.append("path").attr("fill", "none").attr("stroke", HILITE).attr("stroke-width", w)

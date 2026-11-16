@@ -6,8 +6,8 @@ import { spearman } from "../lib/stats.js";
 import { fmt2 } from "../lib/format.js";
 import { useAppState } from "../state/AppState.jsx";
 import { useData } from "../data/DataProvider.jsx";
-import CorrHeatmap from "../charts/CorrHeatmap.jsx";
-import Scatter from "../components/Scatter.jsx";
+import CorrHeatmap from "../../../d3-visualisations/q4/CorrHeatmap.jsx";
+import Scatter from "../../../d3-visualisations/shared/Scatter.jsx";
 import HoverCard from "../components/HoverCard.jsx";
 import Question from "../components/Question.jsx";
 

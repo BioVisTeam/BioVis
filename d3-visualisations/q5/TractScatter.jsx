@@ -1,10 +1,13 @@
+// D3 for review. Used by: Q5. Encodes: NYC tracts: prevalence vs affected adults.
+// D3: linear scales, symbol shapes per borough, data join, threshold lines. React owns the container; D3 draws inside useEffect.
+// ---
 // Q5: NYC tracts. x = crude prevalence (%), y = estimated affected adults.
 // Colour and shape both encode borough, so colour is not the only cue. Tracts under 500
 // adults are hollow and not ranked. Dashed lines mark the top 10% of each axis.
 import { useEffect, useRef } from "react";
 import * as d3 from "d3";
-import { BOROUGHS, MUTED, HILITE, PIN_W } from "../lib/constants.js";
-import { useAppState } from "../state/AppState.jsx";
+import { BOROUGHS, MUTED, HILITE, PIN_W } from "../../app/src/lib/constants.js";
+import { useAppState } from "../../app/src/state/AppState.jsx";
 
 const W = 600, H = 380, M = { t: 14, r: 16, b: 48, l: 64 };
 const BOROUGH_STYLE = {

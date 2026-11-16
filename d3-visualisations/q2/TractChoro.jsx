@@ -1,11 +1,14 @@
+// D3 for review. Used by: Q2 map; also the Q6 NYC scope. Encodes: NYC tract choropleth.
+// D3: d3-geo Mercator fitted to the boroughs, data join of tract paths, zoom to a borough. React owns the container; D3 draws inside useEffect.
+// ---
 // NYC tract choropleth (Mercator, fitted to the five boroughs). Used by Q2 and the Q6 NYC scope.
 // styleFor(tractId) -> { fill, opacity }. focusIds zooms to a set of tracts (a borough).
 import { useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
-import { SEAM } from "../lib/constants.js";
-import { addOutlines } from "../lib/outline.js";
-import { ensureDefs } from "../lib/patterns.js";
-import { useAppState } from "../state/AppState.jsx";
+import { SEAM } from "../../app/src/lib/constants.js";
+import { addOutlines } from "../shared/outline.js";
+import { ensureDefs } from "../shared/patterns.js";
+import { useAppState } from "../../app/src/state/AppState.jsx";
 
 export default function TractChoro({ geo, styleFor, focusIds = null, width = 520, height = 480, ariaLabel }) {
   const ref = useRef(null);

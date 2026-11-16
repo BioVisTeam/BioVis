@@ -1,3 +1,6 @@
+// D3 for review. Used by: Overview. Encodes: US county map with tract view on zoom.
+// D3: d3-geo Albers projection and path, d3-zoom (one transform), colour scales, canvas Path2D for tracts. React owns the container; D3 draws inside useEffect.
+// ---
 // Overview map. Counties are SVG (about 3,100 paths) and zoom with one transform on a group.
 // Tracts are drawn on a canvas: a Path2D per tract (built once per state file), redrawn per
 // animation frame while zooming, with off-screen tracts skipped. Hover and click on tracts are
@@ -6,12 +9,12 @@
 // Tract level (state.view): auto = tracts at zoom 8 or more, county = never, tract = always.
 import { useEffect, useMemo, useRef, useState } from "react";
 import * as d3 from "d3";
-import { NYC_FIPS, SURFACE, SEAM, HILITE, MISSING, MISSING_LINE, HOVER_W, PIN_W } from "../lib/constants.js";
-import { FILL_MISSING, FILL_DOTS, FILL_SMALL, ensureDefs } from "../lib/patterns.js";
-import { useAppState } from "../state/AppState.jsx";
-import { useData, useNycGeo, loadStateTracts } from "../data/DataProvider.jsx";
-import { addOutlines } from "../lib/outline.js";
-import ViewToggle from "../components/ViewToggle.jsx";
+import { NYC_FIPS, SURFACE, SEAM, HILITE, MISSING, MISSING_LINE, HOVER_W, PIN_W } from "../../app/src/lib/constants.js";
+import { FILL_MISSING, FILL_DOTS, FILL_SMALL, ensureDefs } from "../shared/patterns.js";
+import { useAppState } from "../../app/src/state/AppState.jsx";
+import { useData, useNycGeo, loadStateTracts } from "../../app/src/data/DataProvider.jsx";
+import { addOutlines } from "../shared/outline.js";
+import ViewToggle from "../../app/src/components/ViewToggle.jsx";
 
 const W = 960, H = 600, S = 2;       // viewBox size and canvas pixels per viewBox unit
 const TRACT_ZOOM = 8;

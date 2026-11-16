@@ -1,11 +1,14 @@
+// D3 for review. Used by: Q1 maps; also the Q6 US map. Encodes: county choropleth coloured by condition class.
+// D3: d3-geo projection and path, data join of county paths, hover/pin outlines. React owns the container; D3 draws inside useEffect.
+// ---
 // Static county choropleth (Albers, Alaska and Hawaii as insets). Used by Q1 maps and the Q6 US map.
 // styleFor(fips) returns { fill, opacity }. The hovered and pinned county get an outline.
 import { useEffect, useMemo, useRef } from "react";
 import * as d3 from "d3";
-import { SEAM } from "../lib/constants.js";
-import { addOutlines } from "../lib/outline.js";
-import { ensureDefs } from "../lib/patterns.js";
-import { useAppState } from "../state/AppState.jsx";
+import { SEAM } from "../../app/src/lib/constants.js";
+import { addOutlines } from "../shared/outline.js";
+import { ensureDefs } from "../shared/patterns.js";
+import { useAppState } from "../../app/src/state/AppState.jsx";
 
 export default function CountyChoro({ geo, styleFor, width = 600, height = 380, ariaLabel, onClick, linked = true }) {
   const ref = useRef(null);
