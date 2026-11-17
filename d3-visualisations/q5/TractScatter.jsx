@@ -4,7 +4,7 @@
 // Q5: NYC tracts. x = crude prevalence (%), y = estimated affected adults.
 // Colour and shape both encode borough, so colour is not the only cue. Tracts under 500
 // adults are hollow and not ranked. Dashed lines mark the top 10% of each axis.
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as d3 from "d3";
 import { BOROUGHS, MUTED, HILITE, PIN_W } from "../../app/src/lib/constants.js";
 import { useAppState } from "../../app/src/state/AppState.jsx";
@@ -21,14 +21,17 @@ const BOROUGH_STYLE = {
 export default function TractScatter({ tracts, xCut, yCut, ariaLabel }) {
   const ref = useRef(null);
   const { state, set, togglePin } = useAppState();
+  const [shown, setShown] = useState(BOROUGHS);
+  const toggle = (b) => setShown((s) => (s.includes(b) ? s.filter((x) => x !== b) : [...s, b]));
   const pinned = state.pinned?.kind === "tract" ? state.pinned.id : null;
   useEffect(() => {
     const svg = d3.select(ref.current);
     svg.selectAll("*").remove();
     svg.attr("viewBox", `0 0 ${W} ${H}`);
-    const pts = tracts.filter((t) => t.x != null && t.y != null);
-    const x = d3.scaleLinear().domain([0, d3.max(pts, (p) => p.x)]).nice().range([M.l, W - M.r]);
-    const y = d3.scaleLinear().domain([0, d3.max(pts, (p) => p.y)]).nice().range([H - M.b, M.t]);
+    const all = tracts.filter((t) => t.x != null && t.y != null);
+    const pts = all.filter((p) => shown.includes(p.borough)); // axes use all boroughs so they stay put
+    const x = d3.scaleLinear().domain([0, d3.max(all, (p) => p.x)]).nice().range([M.l, W - M.r]);
+    const y = d3.scaleLinear().domain([0, d3.max(all, (p) => p.y)]).nice().range([H - M.b, M.t]);
     svg.append("g").attr("transform", `translate(0,${H - M.b})`).call(d3.axisBottom(x).ticks(7));
     svg.append("g").attr("transform", `translate(${M.l},0)`).call(d3.axisLeft(y).ticks(6));
     svg.append("text").attr("x", (M.l + W - M.r) / 2).attr("y", H - 6).attr("text-anchor", "middle").text("Crude prevalence (%)");
@@ -60,19 +63,20 @@ export default function TractScatter({ tracts, xCut, yCut, ariaLabel }) {
     // Pinned tract: bigger symbol with the highlight outline, on top.
     dots.filter((p) => p.id === pinned).attr("d", (p) => d3.symbol(BOROUGH_STYLE[p.borough].shape, 260)())
       .attr("stroke", HILITE).attr("stroke-width", PIN_W).attr("opacity", 1).raise();
-  }, [tracts, xCut, yCut, set, togglePin, pinned]);
+  }, [tracts, xCut, yCut, shown, set, togglePin, pinned]);
 
   return (
     <>
       <svg ref={ref} className="chart scatter" role="img" aria-label={ariaLabel} />
       <div className="legend-inline">
         {BOROUGHS.map((b) => (
-          <span key={b} className="legend-key">
+          <label key={b} className="legend-key" style={{ cursor: "pointer" }}>
+            <input type="checkbox" checked={shown.includes(b)} onChange={() => toggle(b)} />
             <svg width="14" height="14" viewBox="-7 -7 14 14">
               <path d={d3.symbol(BOROUGH_STYLE[b].shape, 40)()} fill={BOROUGH_STYLE[b].color} />
             </svg>
             {b}
-          </span>
+          </label>
         ))}
         <span className="legend-key">hollow = under 500 adults</span>
       </div>
