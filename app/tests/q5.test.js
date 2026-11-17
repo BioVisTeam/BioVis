@@ -24,3 +24,10 @@ test("Q5 diabetes quadrant counts match the app's live numbers", () => {
   assert.equal(q.highRateManyPeople, 97);
   assert.equal(q.highRateFewPeople, 129);
 });
+
+test("asthma points come from q5.csv with 11-digit ids", async () => {
+  const { parseAsthmaCsv } = await import("../src/lib/q5.js");
+  const rows = parseAsthmaCsv(readFileSync(join(here, "..", "public", "data", "q5.csv"), "utf8"));
+  assert.ok(rows.every((r) => /^\d{11}$/.test(r.id)));
+  assert.ok(rows.filter((r) => !r.small).length > 1000);
+});
